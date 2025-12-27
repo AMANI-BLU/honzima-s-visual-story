@@ -1,13 +1,30 @@
-// Update this page (the content is just a fallback if you fail to update the page)
+import Navigation from "@/components/Navigation";
+import HeroSection from "@/components/HeroSection";
+import AboutSection from "@/components/AboutSection";
+import PortfolioSection from "@/components/PortfolioSection";
+import ToolsSection from "@/components/ToolsSection";
+import ProcessSection from "@/components/ProcessSection";
+import TikTokSection from "@/components/TikTokSection";
+import TestimonialsSection from "@/components/TestimonialsSection";
+import PricingSection from "@/components/PricingSection";
+import ContactSection from "@/components/ContactSection";
+import Footer from "@/components/Footer";
 
 const Index = () => {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background">
-      <div className="text-center">
-        <h1 className="mb-4 text-4xl font-bold">Welcome to Your Blank App</h1>
-        <p className="text-xl text-muted-foreground">Start building your amazing project here!</p>
-      </div>
-    </div>
+    <main className="min-h-screen bg-background overflow-x-hidden">
+      <Navigation />
+      <HeroSection />
+      <AboutSection />
+      <PortfolioSection />
+      <ToolsSection />
+      <ProcessSection />
+      <TikTokSection />
+      <TestimonialsSection />
+      <PricingSection />
+      <ContactSection />
+      <Footer />
+    </main>
   );
 };
 
