@@ -92,26 +92,39 @@ const HeroSection = () => {
           className="order-1 lg:order-2 relative"
         >
           <div className="relative aspect-[3/4] max-w-md mx-auto">
-            {/* Glow effect behind image */}
-            <div className="absolute inset-0 bg-gradient-radial from-primary/40 to-transparent blur-3xl scale-110" />
+            {/* Three concentric circle lines */}
+            <div className="absolute inset-0 flex items-center justify-center">
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[110%] h-[110%] rounded-full border-2 border-primary/30"
+              />
+              <motion.div 
+                animate={{ rotate: -360 }}
+                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[125%] h-[125%] rounded-full border border-primary/20"
+              />
+              <motion.div 
+                animate={{ rotate: 360 }}
+                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                className="absolute w-[140%] h-[140%] rounded-full border border-accent/20"
+              />
+            </div>
             
-            {/* Main image container */}
-            <div className="relative rounded-3xl overflow-hidden border-2 border-primary/20 glow">
+            {/* Main image - no box */}
+            <div className="relative">
               <img
                 src={heroImage}
                 alt="Honzima - Video Editor"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover relative z-10"
               />
-              
-              {/* Overlay gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
             </div>
             
             {/* Floating badge */}
             <motion.div
               animate={{ y: [0, -10, 0] }}
               transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-4 top-1/4 glass-card px-4 py-3"
+              className="absolute -right-4 top-1/4 glass-card px-4 py-3 z-20"
             >
               <div className="flex items-center gap-2">
                 <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />

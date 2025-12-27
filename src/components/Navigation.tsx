@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Moon, Sun } from 'lucide-react';
+import { useTheme } from 'next-themes';
 
 const navLinks = [
   { href: '#about', label: 'About' },
@@ -14,8 +15,11 @@ const navLinks = [
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
@@ -52,16 +56,33 @@ const Navigation = () => {
             ))}
           </nav>
 
-          {/* CTA Button */}
-          <motion.a
-            href="#contact"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="hidden md:block px-6 py-2.5 rounded-full font-display font-semibold text-sm text-primary-foreground"
-            style={{ background: 'var(--gradient-primary)' }}
-          >
-            Hire Me
-          </motion.a>
+          {/* Actions */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Theme Toggle */}
+            {mounted && (
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+                onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+                className="p-2.5 rounded-full bg-secondary/50 hover:bg-secondary transition-colors relative"
+                aria-label="Toggle theme"
+              >
+                <Sun className="h-5 w-5 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
+                <Moon className="h-5 w-5 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100" />
+              </motion.button>
+            )}
+
+            {/* CTA Button */}
+            <motion.a
+              href="#contact"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="px-6 py-2.5 rounded-full font-display font-semibold text-sm text-primary-foreground"
+              style={{ background: 'var(--gradient-primary)' }}
+            >
+              Hire Me
+            </motion.a>
+          </div>
 
           {/* Mobile Menu Button */}
           <button
