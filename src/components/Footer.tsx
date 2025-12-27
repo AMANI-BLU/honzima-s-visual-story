@@ -1,0 +1,104 @@
+import { motion } from 'framer-motion';
+import { Instagram, Twitter, Youtube, Heart } from 'lucide-react';
+
+const Footer = () => {
+  const currentYear = new Date().getFullYear();
+
+  const quickLinks = [
+    { href: '#about', label: 'About' },
+    { href: '#portfolio', label: 'Portfolio' },
+    { href: '#pricing', label: 'Pricing' },
+    { href: '#contact', label: 'Contact' },
+  ];
+
+  const socials = [
+    { icon: Instagram, href: '#', label: 'Instagram' },
+    { icon: Twitter, href: '#', label: 'Twitter' },
+    { icon: Youtube, href: '#', label: 'YouTube' },
+  ];
+
+  return (
+    <footer className="relative py-16 border-t border-border/30">
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/5 to-transparent pointer-events-none" />
+      
+      <div className="container-custom relative z-10 px-6">
+        <div className="grid md:grid-cols-3 gap-12 mb-12">
+          {/* Brand */}
+          <div>
+            <a href="#" className="font-display font-bold text-3xl inline-block mb-4">
+              <span className="text-gradient">H</span>onzima
+            </a>
+            <p className="text-muted-foreground max-w-xs">
+              Transforming raw footage into cinematic masterpieces. Let's create something amazing together.
+            </p>
+          </div>
+          
+          {/* Quick Links */}
+          <div>
+            <h4 className="font-display font-semibold mb-4">Quick Links</h4>
+            <ul className="space-y-3">
+              {quickLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="text-muted-foreground hover:text-primary transition-colors"
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+          
+          {/* Newsletter */}
+          <div>
+            <h4 className="font-display font-semibold mb-4">Stay Updated</h4>
+            <p className="text-muted-foreground text-sm mb-4">
+              Subscribe for tips, tutorials, and updates.
+            </p>
+            <form className="flex gap-2">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="flex-1 px-4 py-2.5 rounded-xl bg-secondary/50 border border-border/50 focus:border-primary focus:outline-none text-sm"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                type="submit"
+                className="px-4 py-2.5 rounded-xl font-semibold text-sm text-primary-foreground"
+                style={{ background: 'var(--gradient-primary)' }}
+              >
+                Join
+              </motion.button>
+            </form>
+          </div>
+        </div>
+        
+        {/* Bottom */}
+        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-muted-foreground flex items-center gap-1">
+            © {currentYear} Honzima. Made with <Heart className="w-4 h-4 text-primary fill-primary" /> All rights reserved.
+          </p>
+          
+          {/* Social Links */}
+          <div className="flex items-center gap-3">
+            {socials.map((social) => (
+              <motion.a
+                key={social.label}
+                href={social.href}
+                whileHover={{ scale: 1.1, y: -2 }}
+                className="w-10 h-10 rounded-lg bg-secondary/50 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
+                aria-label={social.label}
+              >
+                <social.icon className="w-4 h-4" />
+              </motion.a>
+            ))}
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;
