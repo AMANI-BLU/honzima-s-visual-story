@@ -71,9 +71,9 @@ const TikTokSection = () => {
             <div className="relative max-w-[320px] mx-auto">
               <div className="absolute -inset-4 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-cyan-500/20 rounded-[3rem] blur-2xl" />
               
-              <div className="relative bg-black rounded-[2.5rem] p-3 border border-border/50">
+              <div className="relative bg-foreground dark:bg-background rounded-[2.5rem] p-3 border border-border/50">
                 {/* Screen content */}
-                <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-gradient-to-b from-secondary to-background">
+                <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-gradient-to-b from-muted to-card">
                   {/* Video placeholder */}
                   <div className="absolute inset-0 flex items-center justify-center">
                     <div className="text-center">
@@ -121,7 +121,7 @@ const TikTokSection = () => {
               </div>
               
               {/* Dynamic island */}
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-black rounded-full" />
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground dark:bg-background rounded-full" />
             </div>
           </motion.div>
           
