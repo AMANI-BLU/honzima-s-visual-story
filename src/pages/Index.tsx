@@ -5,7 +5,7 @@ import PortfolioSection from "@/components/PortfolioSection";
 import ToolsSection from "@/components/ToolsSection";
 import ProcessSection from "@/components/ProcessSection";
 import TikTokSection from "@/components/TikTokSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
+import TestimonialV2 from "@/components/ui/testimonial-v2";
 import PricingSection from "@/components/PricingSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -20,7 +20,7 @@ const Index = () => {
       <ToolsSection />
       <ProcessSection />
       <TikTokSection />
-      <TestimonialsSection />
+      <TestimonialV2 />
       <PricingSection />
       <ContactSection />
       <Footer />
