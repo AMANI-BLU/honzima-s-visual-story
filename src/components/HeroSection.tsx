@@ -15,10 +15,10 @@ const HeroSection = () => {
       
       <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-6">
         {/* Left Content */}
-        <motion.div
+<motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="order-2 lg:order-1"
         >
           <motion.div
@@ -41,10 +41,11 @@ const HeroSection = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
+          <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="group relative px-8 py-4 rounded-full overflow-hidden font-display font-semibold text-primary-foreground"
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="group relative px-8 py-4 rounded-full overflow-hidden font-display font-semibold text-primary-foreground shadow-lg hover:shadow-xl"
               style={{ background: 'var(--gradient-primary)' }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -54,11 +55,12 @@ const HeroSection = () => {
               <div className="absolute inset-0 bg-foreground/20 opacity-0 group-hover:opacity-100 transition-opacity" />
             </motion.button>
             
-            <motion.a
+          <motion.a
               href="#contact"
-              whileHover={{ scale: 1.05 }}
+              whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              className="px-8 py-4 rounded-full border border-border/50 font-display font-semibold text-foreground hover:bg-secondary/50 transition-colors text-center"
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+              className="px-8 py-4 rounded-full border border-border/50 font-display font-semibold text-foreground hover:bg-secondary/50 transition-all duration-300 text-center"
             >
               Get in Touch
             </motion.a>
@@ -88,7 +90,7 @@ const HeroSection = () => {
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
+          transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="order-1 lg:order-2 relative"
         >
           <div className="relative aspect-[3/4] max-w-md mx-auto">

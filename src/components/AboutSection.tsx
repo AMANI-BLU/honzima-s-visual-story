@@ -25,14 +25,15 @@ const AboutSection = () => {
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
             className="relative"
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glass-card aspect-square flex items-center justify-center"
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="glass-card aspect-square flex items-center justify-center cursor-pointer"
                 >
                   <div className="text-center">
                     <div className="text-5xl font-display font-bold text-gradient mb-2">5+</div>
@@ -40,8 +41,9 @@ const AboutSection = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glass-card p-6"
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="glass-card p-6 cursor-pointer"
                   style={{ background: 'var(--gradient-primary)' }}
                 >
                   <p className="font-display font-semibold text-primary-foreground text-lg">
@@ -51,8 +53,9 @@ const AboutSection = () => {
               </div>
               <div className="space-y-4 pt-8">
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glass-card aspect-[4/3]"
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="glass-card aspect-[4/3] cursor-pointer"
                 >
                   <div className="h-full flex items-center justify-center">
                     <div className="w-16 h-16 rounded-full border-2 border-primary flex items-center justify-center animate-pulse-glow">
@@ -61,8 +64,9 @@ const AboutSection = () => {
                   </div>
                 </motion.div>
                 <motion.div
-                  whileHover={{ scale: 1.02 }}
-                  className="glass-card aspect-square flex items-center justify-center"
+                  whileHover={{ scale: 1.03, y: -4 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                  className="glass-card aspect-square flex items-center justify-center cursor-pointer"
                 >
                   <div className="text-center">
                     <div className="text-5xl font-display font-bold text-gradient-accent mb-2">50+</div>
@@ -77,7 +81,7 @@ const AboutSection = () => {
           <motion.div
             initial={{ opacity: 0, x: 50 }}
             animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2 }}
+            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
             <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
               About Me
@@ -104,8 +108,9 @@ const AboutSection = () => {
                   key={feature.title}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4 + index * 0.1 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-colors"
+                  transition={{ delay: 0.4 + index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+                  whileHover={{ scale: 1.02, x: 4 }}
+                  className="flex items-start gap-3 p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-all duration-300 cursor-pointer"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                     <feature.icon className="w-5 h-5 text-primary" />
