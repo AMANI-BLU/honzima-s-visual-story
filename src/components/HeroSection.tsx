@@ -1,17 +1,29 @@
 import { motion } from 'framer-motion';
 import { Play, ArrowDown, Sparkles } from 'lucide-react';
 import heroImage from '@/assets/honzima-hero.png';
+import { Tiles } from '@/components/ui/tiles';
 
 const HeroSection = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32">
-      {/* Background Effects */}
-      <div className="absolute inset-0 bg-gradient-radial from-primary/10 via-background to-background" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[128px] animate-pulse" />
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/20 rounded-full blur-[100px] animate-pulse" style={{ animationDelay: '1s' }} />
+      {/* Interactive Tiles Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Tiles 
+          rows={50} 
+          cols={30} 
+          tileSize="md" 
+          className="opacity-40"
+          tileClassName="hover:!bg-primary/80"
+        />
+      </div>
+      
+      {/* Background Gradient Overlay */}
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/60 to-background pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/15 rounded-full blur-[128px] animate-pulse pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-accent/15 rounded-full blur-[100px] animate-pulse pointer-events-none" style={{ animationDelay: '1s' }} />
       
       {/* Noise Overlay */}
-      <div className="absolute inset-0 bg-noise opacity-[0.03] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
       
       <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-6">
         {/* Left Content */}
