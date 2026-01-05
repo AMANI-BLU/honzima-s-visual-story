@@ -10,6 +10,7 @@ const portfolioItems: (Testimonial & { category: string })[] = [
     title: "Travel Vlog Edit",
     content: "Cinematic travel vlog featuring stunning landscapes and smooth transitions. Duration: 3:45",
     thumbnail: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=600&fit=crop",
+    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
     category: "Cinematic",
   },
   {
@@ -18,6 +19,7 @@ const portfolioItems: (Testimonial & { category: string })[] = [
     title: "Brand Commercial",
     content: "High-energy commercial with dynamic cuts and color grading. Duration: 0:30",
     thumbnail: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=600&fit=crop",
+    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
     category: "Commercial",
   },
   {
@@ -26,6 +28,7 @@ const portfolioItems: (Testimonial & { category: string })[] = [
     title: "Music Video",
     content: "Stylized music video with creative effects and beat-synced editing. Duration: 4:20",
     thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
+    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
     category: "Music",
   },
   {
@@ -34,6 +37,7 @@ const portfolioItems: (Testimonial & { category: string })[] = [
     title: "Documentary Short",
     content: "Compelling documentary with narrative storytelling and emotional pacing. Duration: 12:00",
     thumbnail: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=600&fit=crop",
+    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
     category: "Documentary",
   },
   {
@@ -42,6 +46,7 @@ const portfolioItems: (Testimonial & { category: string })[] = [
     title: "Product Showcase",
     content: "Sleek product video with professional lighting and smooth animations. Duration: 1:15",
     thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=600&fit=crop",
+    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
     category: "Commercial",
   },
   {
@@ -50,6 +55,7 @@ const portfolioItems: (Testimonial & { category: string })[] = [
     title: "Social Media Reel",
     content: "Fast-paced social content optimized for engagement. Duration: 0:45",
     thumbnail: "https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=800&h=600&fit=crop",
+    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
     category: "Social",
   },
 ];
