@@ -26,7 +26,8 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <a href="#" className="font-display font-bold text-3xl inline-block mb-4">
-              <span className="text-gradient">H</span>onzima
+              <span className="text-primary">H</span>
+              <span className="text-foreground">onzima</span>
             </a>
             <p className="text-muted-foreground max-w-xs">
               Transforming raw footage into cinematic masterpieces. Let's create something amazing together.
@@ -78,7 +79,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} Honzima. Made with <Heart className="w-4 h-4 text-primary fill-primary" /> All rights reserved.
+            © {currentYear} <span className="text-foreground font-semibold">Honzima</span>. Made with <Heart className="w-4 h-4 text-primary fill-primary" /> All rights reserved.
           </p>
           
           {/* Social Links */}

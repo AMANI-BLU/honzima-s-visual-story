@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Heart, MessageCircle, Share2, Bookmark, Music2 } from 'lucide-react';
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const tiktokComments = [
   {
@@ -131,15 +132,21 @@ const TikTokSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ delay: 0.2 }}
           >
-            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-              Social Proof
-            </span>
+            <BlurTextBlock delay={0}>
+              <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
+                Social Proof
+              </span>
+            </BlurTextBlock>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              What the <span className="text-gradient-accent">Community</span> Says
+              <BlurText delay={0.1}>What the</BlurText>{' '}
+              <BlurText delay={0.2} className="text-gradient-accent">Community</BlurText>{' '}
+              <BlurText delay={0.3}>Says</BlurText>
             </h2>
-            <p className="text-muted-foreground mb-8">
-              Real comments from my TikTok community. The love keeps me creating!
-            </p>
+            <BlurTextBlock delay={0.4}>
+              <p className="text-muted-foreground mb-8">
+                Real comments from my TikTok community. The love keeps me creating!
+              </p>
+            </BlurTextBlock>
             
             {/* Comments list */}
             <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">

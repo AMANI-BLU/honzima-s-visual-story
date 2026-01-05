@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { MessageCircle, Lightbulb, Scissors, Palette, Send, CheckCircle } from 'lucide-react';
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const steps = [
   {
@@ -51,21 +52,22 @@ const ProcessSection = () => {
       <div className="absolute left-0 bottom-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-            How I Work
-          </span>
+        <div className="text-center mb-16">
+          <BlurTextBlock delay={0}>
+            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
+              How I Work
+            </span>
+          </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            My Creative <span className="text-gradient">Process</span>
+            <BlurText delay={0.1}>My Creative</BlurText>{' '}
+            <BlurText delay={0.2} className="text-gradient">Process</BlurText>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            A structured approach to ensure every project exceeds expectations.
-          </p>
-        </motion.div>
+          <BlurTextBlock delay={0.3}>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              A structured approach to ensure every project exceeds expectations.
+            </p>
+          </BlurTextBlock>
+        </div>
 
         {/* Process Timeline */}
         <div className="relative">
