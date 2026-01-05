@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Clock, Zap, Heart } from 'lucide-react';
-
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -83,23 +83,23 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
+            <BlurTextBlock delay={0} className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
               About Me
-            </span>
+            </BlurTextBlock>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              Crafting Visual Stories That{' '}
-              <span className="text-gradient">Resonate</span>
+              <BlurText delay={0.1}>Crafting Visual Stories That</BlurText>{' '}
+              <BlurText delay={0.3} className="text-gradient">Resonate</BlurText>
             </h2>
-            <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+            <BlurTextBlock delay={0.4} className="text-muted-foreground text-lg leading-relaxed mb-6">
               I'm Honzima, a passionate video editor with over 5 years of experience in creating 
               compelling visual content. From short-form TikTok videos to cinematic long-form 
               content, I bring stories to life through meticulous editing and creative vision.
-            </p>
-            <p className="text-muted-foreground leading-relaxed mb-8">
+            </BlurTextBlock>
+            <BlurTextBlock delay={0.5} className="text-muted-foreground leading-relaxed mb-8">
               My expertise spans across color grading, motion graphics, sound design, and 
               storytelling. I believe every project deserves a unique approach that captures 
               its essence and connects with the audience on an emotional level.
-            </p>
+            </BlurTextBlock>
             
             {/* Feature grid */}
             <div className="grid grid-cols-2 gap-4">
