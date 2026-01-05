@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Play, ArrowDown, Sparkles } from 'lucide-react';
 import heroImage from '@/assets/honzima-hero.png';
 import { Tiles } from '@/components/ui/tiles';
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const HeroSection = () => {
   return (
@@ -44,13 +45,13 @@ const HeroSection = () => {
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-6">
-            <span className="block">Hi, I'm</span>
-            <span className="text-gradient">Honzima</span>
+            <BlurText delay={0.3} className="block">Hi, I'm</BlurText>
+            <BlurText delay={0.5} className="text-gradient">Honzima</BlurText>
           </h1>
           
-          <p className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 font-light">
+          <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 font-light">
             Transforming raw footage into cinematic masterpieces. I craft stories that captivate and inspire.
-          </p>
+          </BlurTextBlock>
           
           <div className="flex flex-col sm:flex-row gap-4">
           <motion.button

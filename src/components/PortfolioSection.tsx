@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { TestimonialCard, type Testimonial } from '@/components/ui/multi-media-testimonial';
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const portfolioItems: (Testimonial & { category: string })[] = [
   {
@@ -76,21 +77,18 @@ const PortfolioSection = () => {
       <div className="absolute left-0 top-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-12"
-        >
-          <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
+        <div className="text-center mb-12">
+          <BlurTextBlock delay={0} className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
             Portfolio
-          </span>
+          </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            Featured <span className="text-gradient">Works</span>
+            <BlurText delay={0.1}>Featured</BlurText>{' '}
+            <BlurText delay={0.2} className="text-gradient">Works</BlurText>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <BlurTextBlock delay={0.3} className="text-muted-foreground max-w-2xl mx-auto">
             A collection of my best video editing projects across different styles and industries.
-          </p>
-        </motion.div>
+          </BlurTextBlock>
+        </div>
 
         {/* Category Filter */}
         <motion.div
