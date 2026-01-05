@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Check, Zap, Crown, Rocket } from 'lucide-react';
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const packages = [
   {
@@ -71,21 +72,22 @@ const PricingSection = () => {
       <div className="absolute right-1/4 bottom-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-            Pricing
-          </span>
+        <div className="text-center mb-16">
+          <BlurTextBlock delay={0}>
+            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
+              Pricing
+            </span>
+          </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            Choose Your <span className="text-gradient">Package</span>
+            <BlurText delay={0.1}>Choose Your</BlurText>{' '}
+            <BlurText delay={0.2} className="text-gradient">Package</BlurText>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Transparent pricing for every project size. Custom quotes available for larger productions.
-          </p>
-        </motion.div>
+          <BlurTextBlock delay={0.3}>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Transparent pricing for every project size. Custom quotes available for larger productions.
+            </p>
+          </BlurTextBlock>
+        </div>
 
         {/* Pricing Cards */}
         <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
@@ -151,19 +153,16 @@ const PricingSection = () => {
         </div>
         
         {/* Custom quote */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ delay: 0.6 }}
-          className="text-center mt-12"
-        >
-          <p className="text-muted-foreground">
-            Need something custom?{' '}
-            <a href="#contact" className="text-primary hover:underline font-semibold">
-              Let's talk about your project
-            </a>
-          </p>
-        </motion.div>
+        <BlurTextBlock delay={0.6}>
+          <div className="text-center mt-12">
+            <p className="text-muted-foreground">
+              Need something custom?{' '}
+              <a href="#contact" className="text-primary hover:underline font-semibold">
+                Let's talk about your project
+              </a>
+            </p>
+          </div>
+        </BlurTextBlock>
       </div>
     </section>
   );

@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 // Tool icons as simple components
 const tools = [
@@ -64,21 +65,22 @@ const ToolsSection = () => {
       <div className="absolute right-1/4 top-0 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[100px]" />
       
       <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-            My Arsenal
-          </span>
+        <div className="text-center mb-16">
+          <BlurTextBlock delay={0}>
+            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
+              My Arsenal
+            </span>
+          </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            Tools I <span className="text-gradient">Master</span>
+            <BlurText delay={0.1}>Tools I</BlurText>{' '}
+            <BlurText delay={0.2} className="text-gradient">Master</BlurText>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Industry-leading software and tools I use to bring creative visions to life.
-          </p>
-        </motion.div>
+          <BlurTextBlock delay={0.3}>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Industry-leading software and tools I use to bring creative visions to life.
+            </p>
+          </BlurTextBlock>
+        </div>
 
         {/* Tools Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">

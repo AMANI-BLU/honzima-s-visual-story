@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef, useState } from 'react';
 import { Send, Mail, MapPin, Phone, Instagram, Twitter, Youtube } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const ContactSection = () => {
   const ref = useRef(null);
@@ -41,21 +42,22 @@ const ContactSection = () => {
       <div className="absolute left-0 top-1/2 w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : {}}
-          className="text-center mb-16"
-        >
-          <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-            Contact
-          </span>
+        <div className="text-center mb-16">
+          <BlurTextBlock delay={0}>
+            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
+              Contact
+            </span>
+          </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            Let's <span className="text-gradient">Connect</span>
+            <BlurText delay={0.1}>Let's</BlurText>{' '}
+            <BlurText delay={0.2} className="text-gradient">Connect</BlurText>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Ready to bring your vision to life? Get in touch and let's create something amazing together.
-          </p>
-        </motion.div>
+          <BlurTextBlock delay={0.3}>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Ready to bring your vision to life? Get in touch and let's create something amazing together.
+            </p>
+          </BlurTextBlock>
+        </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
           {/* Left - Contact Form */}
