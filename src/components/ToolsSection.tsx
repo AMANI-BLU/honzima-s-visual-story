@@ -2,55 +2,57 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
+import { SpotlightCard } from '@/components/ui/spotlight-card';
+import { Film, Clapperboard, Sparkles, Image, Camera, Smartphone, Video, Headphones } from 'lucide-react';
 
-// Tool icons as simple components
+// Tool icons as Lucide components
 const tools = [
   { 
     name: 'DaVinci Resolve', 
-    icon: '🎬',
-    color: 'from-orange-500/20 to-red-500/20',
+    icon: Film,
+    spotlightColor: 'rgba(249, 115, 22, 0.25)',
     level: 95 
   },
   { 
     name: 'Adobe Premiere Pro', 
-    icon: '🎞️',
-    color: 'from-purple-500/20 to-blue-500/20',
+    icon: Clapperboard,
+    spotlightColor: 'rgba(168, 85, 247, 0.25)',
     level: 90 
   },
   { 
     name: 'After Effects', 
-    icon: '✨',
-    color: 'from-blue-500/20 to-purple-500/20',
+    icon: Sparkles,
+    spotlightColor: 'rgba(59, 130, 246, 0.25)',
     level: 85 
   },
   { 
     name: 'Photoshop', 
-    icon: '🖼️',
-    color: 'from-blue-400/20 to-cyan-400/20',
+    icon: Image,
+    spotlightColor: 'rgba(6, 182, 212, 0.25)',
     level: 88 
   },
   { 
     name: 'Lightroom', 
-    icon: '📷',
-    color: 'from-sky-500/20 to-blue-500/20',
+    icon: Camera,
+    spotlightColor: 'rgba(14, 165, 233, 0.25)',
     level: 92 
   },
   { 
     name: 'CapCut', 
-    icon: '📱',
-    color: 'from-pink-500/20 to-rose-500/20',
+    icon: Smartphone,
+    spotlightColor: 'rgba(236, 72, 153, 0.25)',
     level: 95 
   },
   { 
     name: 'Final Cut Pro', 
-    icon: '🎥',
-    color: 'from-gray-400/20 to-gray-600/20',
+    icon: Video,
+    spotlightColor: 'rgba(156, 163, 175, 0.25)',
     level: 80 
   },
   { 
     name: 'Audition', 
-    icon: '🎧',
-    color: 'from-green-500/20 to-teal-500/20',
+    icon: Headphones,
+    spotlightColor: 'rgba(34, 197, 94, 0.25)',
     level: 82 
   },
 ];
@@ -84,33 +86,41 @@ const ToolsSection = () => {
 
         {/* Tools Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {tools.map((tool, index) => (
-            <motion.div
-              key={tool.name}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
-              animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
-              transition={{ delay: index * 0.1 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              className="group"
-            >
-              <div className={`glass-card h-full bg-gradient-to-br ${tool.color} hover:border-primary/50 transition-all duration-300`}>
-                <div className="text-4xl md:text-5xl mb-4">{tool.icon}</div>
-                <h3 className="font-display font-semibold text-sm md:text-base mb-3">{tool.name}</h3>
-                
-                {/* Skill bar */}
-                <div className="relative h-1.5 bg-secondary rounded-full overflow-hidden">
-                  <motion.div
-                    initial={{ width: 0 }}
-                    animate={isInView ? { width: `${tool.level}%` } : {}}
-                    transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
-                    className="absolute inset-y-0 left-0 rounded-full"
-                    style={{ background: 'var(--gradient-primary)' }}
-                  />
-                </div>
-                <span className="text-xs text-muted-foreground mt-2 block">{tool.level}%</span>
-              </div>
-            </motion.div>
-          ))}
+          {tools.map((tool, index) => {
+            const IconComponent = tool.icon;
+            return (
+              <motion.div
+                key={tool.name}
+                initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                animate={isInView ? { opacity: 1, y: 0, scale: 1 } : {}}
+                transition={{ delay: index * 0.1 }}
+              >
+                <SpotlightCard 
+                  spotlightColor={tool.spotlightColor}
+                  className="h-full hover:border-primary/50 transition-all duration-300"
+                >
+                  <div className="flex flex-col items-center text-center">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-2xl bg-primary/10 flex items-center justify-center mb-4">
+                      <IconComponent className="w-6 h-6 md:w-7 md:h-7 text-primary" />
+                    </div>
+                    <h3 className="font-display font-semibold text-sm md:text-base mb-3">{tool.name}</h3>
+                    
+                    {/* Skill bar */}
+                    <div className="w-full relative h-1.5 bg-secondary rounded-full overflow-hidden">
+                      <motion.div
+                        initial={{ width: 0 }}
+                        animate={isInView ? { width: `${tool.level}%` } : {}}
+                        transition={{ delay: 0.5 + index * 0.1, duration: 0.8 }}
+                        className="absolute inset-y-0 left-0 rounded-full"
+                        style={{ background: 'var(--gradient-primary)' }}
+                      />
+                    </div>
+                    <span className="text-xs text-muted-foreground mt-2 block">{tool.level}%</span>
+                  </div>
+                </SpotlightCard>
+              </motion.div>
+            );
+          })}
         </div>
 
         {/* Marquee of additional skills */}
