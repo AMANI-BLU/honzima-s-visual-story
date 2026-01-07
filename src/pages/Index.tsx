@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import HeroSection from "@/components/HeroSection";
 import AboutSection from "@/components/AboutSection";
 import PortfolioSection from "@/components/PortfolioSection";
+import FolderPortfolioSection from "@/components/FolderPortfolioSection";
 import ToolsSection from "@/components/ToolsSection";
 import ProcessSection from "@/components/ProcessSection";
 import TikTokSection from "@/components/TikTokSection";
@@ -17,6 +18,7 @@ const Index = () => {
       <HeroSection />
       <AboutSection />
       <PortfolioSection />
+      <FolderPortfolioSection />
       <ToolsSection />
       <ProcessSection />
       <TikTokSection />
