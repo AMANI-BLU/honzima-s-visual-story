@@ -81,8 +81,8 @@ const PortfolioSection = () => {
           <BlurTextBlock delay={0} className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
             Portfolio
           </BlurTextBlock>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            <BlurText delay={0.1}>Featured</BlurText>{' '}
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+            <BlurText delay={0.1} className="text-foreground">Featured</BlurText>{' '}
             <BlurText delay={0.2} className="text-gradient">Works</BlurText>
           </h2>
           <BlurTextBlock delay={0.3} className="text-muted-foreground max-w-2xl mx-auto">

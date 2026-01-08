@@ -54,8 +54,8 @@ const TestimonialsSection = () => {
               Testimonials
             </span>
           </BlurTextBlock>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            <BlurText delay={0.1}>Client</BlurText>{' '}
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+            <BlurText delay={0.1} className="text-foreground">Client</BlurText>{' '}
             <BlurText delay={0.2} className="text-gradient">Love</BlurText>
           </h2>
           <BlurTextBlock delay={0.3}>

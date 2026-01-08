@@ -86,8 +86,8 @@ const AboutSection = () => {
             <BlurTextBlock delay={0} className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
               About Me
             </BlurTextBlock>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-              <BlurText delay={0.1}>Crafting Visual Stories That</BlurText>{' '}
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+              <BlurText delay={0.1} className="text-foreground">Crafting Visual Stories That</BlurText>{' '}
               <BlurText delay={0.3} className="text-gradient">Resonate</BlurText>
             </h2>
             <BlurTextBlock delay={0.4} className="text-muted-foreground text-lg leading-relaxed mb-6">

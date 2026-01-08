@@ -81,7 +81,7 @@ const FolderPortfolioSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-16"
         >
-          <BlurText className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
+          <BlurText className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-foreground">
             Project Gallery
           </BlurText>
           <BlurTextBlock className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto" delay={0.2}>

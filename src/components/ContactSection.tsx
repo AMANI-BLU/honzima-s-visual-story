@@ -48,8 +48,8 @@ const ContactSection = () => {
               Contact
             </span>
           </BlurTextBlock>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            <BlurText delay={0.1}>Let's</BlurText>{' '}
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+            <BlurText delay={0.1} className="text-foreground">Let's</BlurText>{' '}
             <BlurText delay={0.2} className="text-gradient">Connect</BlurText>
           </h2>
           <BlurTextBlock delay={0.3}>
