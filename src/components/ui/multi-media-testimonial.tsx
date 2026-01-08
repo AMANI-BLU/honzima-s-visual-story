@@ -111,8 +111,8 @@ export function TestimonialCard({
                         className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
                       />
                     </AspectRatio>
-                    <div className="absolute inset-0 flex items-center justify-center bg-background/40 opacity-0 group-hover:opacity-100 transition-opacity">
-                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground">
+                    <div className="absolute inset-0 flex items-center justify-center bg-background/30 group-hover:bg-background/50 transition-colors">
+                      <div className="flex items-center justify-center w-12 h-12 rounded-full bg-primary text-primary-foreground shadow-lg group-hover:scale-110 transition-transform">
                         <Play className="w-5 h-5 ml-0.5" />
                       </div>
                     </div>
