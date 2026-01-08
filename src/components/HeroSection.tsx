@@ -44,9 +44,9 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-muted-foreground">Professional Video Editor</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-6">
-            <BlurText delay={0.3} className="block">Hi, I'm</BlurText>
-            <BlurText delay={0.5} className="text-gradient">Honzima</BlurText>
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-6 text-foreground">
+            <BlurText delay={0.3} className="block text-foreground">Hi, I'm</BlurText>
+            <BlurText delay={0.5} className="text-gradient-hero">Honzima</BlurText>
           </h1>
           
           <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 font-light">
