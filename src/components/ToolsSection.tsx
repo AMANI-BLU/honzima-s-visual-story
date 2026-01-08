@@ -73,8 +73,8 @@ const ToolsSection = () => {
               My Arsenal
             </span>
           </BlurTextBlock>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            <BlurText delay={0.1}>Tools I</BlurText>{' '}
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+            <BlurText delay={0.1} className="text-foreground">Tools I</BlurText>{' '}
             <BlurText delay={0.2} className="text-gradient">Master</BlurText>
           </h2>
           <BlurTextBlock delay={0.3}>

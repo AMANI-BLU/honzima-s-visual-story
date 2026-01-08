@@ -58,8 +58,8 @@ const ProcessSection = () => {
               How I Work
             </span>
           </BlurTextBlock>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
-            <BlurText delay={0.1}>My Creative</BlurText>{' '}
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+            <BlurText delay={0.1} className="text-foreground">My Creative</BlurText>{' '}
             <BlurText delay={0.2} className="text-gradient">Process</BlurText>
           </h2>
           <BlurTextBlock delay={0.3}>
