@@ -32,7 +32,6 @@ const HeroSection = () => {
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="order-2 lg:order-1"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -104,7 +103,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="order-1 lg:order-2 relative"
+          className="relative"
         >
           <div className="relative aspect-[3/4] max-w-md mx-auto">
             {/* Three concentric circle lines */}
