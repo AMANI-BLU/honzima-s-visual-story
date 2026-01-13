@@ -80,7 +80,7 @@ const PricingSection = () => {
           </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
             <BlurText delay={0.1}>Choose Your</BlurText>{' '}
-            <BlurText delay={0.2} className="text-gradient">Package</BlurText>
+            <BlurText delay={0.2} className="text-teal-500">Package</BlurText>
           </h2>
         </div>
 

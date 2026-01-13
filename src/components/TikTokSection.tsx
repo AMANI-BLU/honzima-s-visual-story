@@ -139,7 +139,7 @@ const TikTokSection = () => {
             </BlurTextBlock>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
               <BlurText delay={0.1}>What the</BlurText>{' '}
-              <BlurText delay={0.2} className="text-gradient-accent">Community</BlurText>{' '}
+              <BlurText delay={0.2} className="text-teal-500">Community</BlurText>{' '}
               <BlurText delay={0.3}>Says</BlurText>
             </h2>
             <BlurTextBlock delay={0.4}>

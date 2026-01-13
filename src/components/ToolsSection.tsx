@@ -75,7 +75,7 @@ const ToolsSection = () => {
           </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
             <BlurText delay={0.1} className="text-foreground">Tools I</BlurText>{' '}
-            <BlurText delay={0.2} className="text-gradient">Master</BlurText>
+            <BlurText delay={0.2} className="text-teal-500">Master</BlurText>
           </h2>
           <BlurTextBlock delay={0.3}>
             <p className="text-muted-foreground max-w-2xl mx-auto">

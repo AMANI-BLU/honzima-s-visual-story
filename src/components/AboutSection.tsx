@@ -88,7 +88,7 @@ const AboutSection = () => {
             </BlurTextBlock>
             <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
               <BlurText delay={0.1} className="text-foreground">Crafting Visual Stories That</BlurText>{' '}
-              <BlurText delay={0.3} className="text-gradient">Resonate</BlurText>
+              <BlurText delay={0.3} className="text-teal-500">Resonate</BlurText>
             </h2>
             <BlurTextBlock delay={0.4} className="text-muted-foreground text-lg leading-relaxed mb-6">
               I'm Honzima, a passionate video editor with over 5 years of experience in creating 

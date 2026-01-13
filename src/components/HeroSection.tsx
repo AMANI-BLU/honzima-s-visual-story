@@ -6,7 +6,7 @@ import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-32">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-0">
       {/* Interactive Tiles Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Tiles 
@@ -26,7 +26,7 @@ const HeroSection = () => {
       {/* Noise Overlay */}
       <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
       
-      <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-6">
+      <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-20">
         {/* Left Content */}
 <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -45,7 +45,7 @@ const HeroSection = () => {
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-6 text-foreground">
             <BlurText delay={0.3} className="block text-foreground">Hi, I'm</BlurText>
-            <BlurText delay={0.5} className="text-gradient-hero">Honzima</BlurText>
+            <BlurText delay={0.5} className="text-teal-500">Honzima</BlurText>
           </h1>
           
           <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 font-light">
@@ -105,7 +105,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="relative"
         >
-          <div className="relative aspect-[3/4] max-w-md mx-auto">
+          <div className="relative aspect-[2/4] max-w-md mx-auto">
             {/* Three concentric circle lines */}
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div 
