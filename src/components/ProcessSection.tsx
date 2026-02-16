@@ -1,45 +1,82 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { MessageCircle, Lightbulb, Scissors, Palette, Send, CheckCircle } from 'lucide-react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
+import { Upload, Wand2, MessageSquare, Rocket } from 'lucide-react';
 
 const steps = [
   {
-    icon: MessageCircle,
-    title: 'Discovery Call',
-    description: 'We discuss your vision, goals, and requirements to understand the project scope.',
-    color: 'from-blue-500 to-cyan-500',
+    number: '01',
+    title: 'Drop Your Footage',
+    description: 'Upload your raw clips — WeTransfer, Google Drive, Dropbox — whatever works for you.',
+    illustration: (
+      <div className="flex items-center justify-center gap-3 py-6">
+        <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shadow-md">
+          <Upload className="w-6 h-6 text-primary" />
+        </div>
+        <div className="w-px h-8 bg-primary/30" />
+        <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center">
+          <span className="text-lg">📁</span>
+        </div>
+        <div className="w-px h-8 bg-primary/30" />
+        <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center">
+          <span className="text-lg">☁️</span>
+        </div>
+      </div>
+    ),
   },
   {
-    icon: Lightbulb,
-    title: 'Creative Planning',
-    description: 'I develop a creative strategy and storyboard to bring your concept to life.',
-    color: 'from-yellow-500 to-orange-500',
+    number: '02',
+    title: 'We Do Our Magic',
+    description: 'We cut, trim, color-grade, and add engaging transitions.',
+    illustration: (
+      <div className="flex items-center justify-center gap-4 py-6">
+        <div className="px-4 py-2 rounded-lg bg-[hsl(var(--primary)/0.15)] text-primary font-bold text-lg shadow-md">Ae</div>
+        <div className="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center shadow-md">
+          <Wand2 className="w-6 h-6 text-accent" />
+        </div>
+        <div className="px-4 py-2 rounded-lg bg-[hsl(var(--primary)/0.15)] text-primary font-bold text-lg shadow-md">Pr</div>
+      </div>
+    ),
   },
   {
-    icon: Scissors,
-    title: 'Editing Magic',
-    description: 'The raw footage transforms into a polished masterpiece through meticulous editing.',
-    color: 'from-primary to-pink-500',
+    number: '03',
+    title: 'Feedback? Easy',
+    description: 'Want something changed? We offer smooth revision rounds to make sure everything is perfect.',
+    illustration: (
+      <div className="flex flex-col items-center gap-3 py-4">
+        <div className="flex items-center gap-2">
+          <div className="w-8 h-8 rounded-full bg-muted flex items-center justify-center">
+            <MessageSquare className="w-4 h-4 text-muted-foreground" />
+          </div>
+          <div className="px-4 py-2 rounded-full bg-card border border-border text-sm font-medium text-foreground shadow-sm">
+            Requested a Revision
+          </div>
+        </div>
+        <div className="px-5 py-2.5 rounded-full text-sm font-semibold text-primary-foreground shadow-lg" style={{ background: 'var(--gradient-primary)' }}>
+          Revision is in progress!
+        </div>
+      </div>
+    ),
   },
   {
-    icon: Palette,
-    title: 'Color & Sound',
-    description: 'Professional color grading and sound design to enhance the visual experience.',
-    color: 'from-purple-500 to-violet-500',
-  },
-  {
-    icon: Send,
-    title: 'Review & Revise',
-    description: 'You review the work and I make revisions until it\'s perfect.',
-    color: 'from-green-500 to-emerald-500',
-  },
-  {
-    icon: CheckCircle,
-    title: 'Final Delivery',
-    description: 'Your finished video is delivered in your preferred format, ready to publish.',
-    color: 'from-accent to-pink-500',
+    number: '04',
+    title: 'Upload & Grow',
+    description: 'We deliver your final video in ready-to-upload YouTube format.',
+    illustration: (
+      <div className="flex flex-col items-center gap-3 py-4">
+        <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-foreground/90 text-background text-sm font-medium shadow-md">
+          <Rocket className="w-4 h-4" />
+          Final.mp4
+        </div>
+        <div className="flex items-center gap-3">
+          <span className="text-sm text-muted-foreground italic">Thumbnail.png</span>
+          <div className="px-5 py-2 rounded-full text-sm font-semibold text-primary-foreground shadow-lg" style={{ background: 'var(--gradient-primary)' }}>
+            Publish
+          </div>
+        </div>
+      </div>
+    ),
   },
 ];
 
@@ -69,57 +106,34 @@ const ProcessSection = () => {
           </BlurTextBlock>
         </div>
 
-        {/* Process Timeline */}
-        <div className="relative">
-          {/* Connecting line */}
-          <div className="hidden lg:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary/20" />
-          
-          <div className="space-y-12 lg:space-y-0">
-            {steps.map((step, index) => (
-              <motion.div
-                key={step.title}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                animate={isInView ? { opacity: 1, x: 0 } : {}}
-                transition={{ delay: index * 0.15 }}
-                className={`relative lg:flex lg:items-center lg:gap-8 ${
-                  index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'
-                }`}
-              >
-                {/* Content */}
-                <div className={`lg:w-1/2 ${index % 2 === 0 ? 'lg:text-right lg:pr-12' : 'lg:pl-12'}`}>
-                  <motion.div
-                    whileHover={{ scale: 1.02 }}
-                    className="glass-card inline-block"
-                  >
-                    <div className={`flex items-center gap-3 mb-3 ${index % 2 === 0 ? 'lg:justify-end' : ''}`}>
-                      <div className={`w-12 h-12 rounded-xl bg-gradient-to-br ${step.color} flex items-center justify-center`}>
-                        <step.icon className="w-6 h-6 text-foreground" />
-                      </div>
-                      <span className="text-sm font-display font-bold text-muted-foreground">
-                        Step {index + 1}
-                      </span>
-                    </div>
-                    <h3 className="font-display font-bold text-xl mb-2">{step.title}</h3>
-                    <p className="text-muted-foreground">{step.description}</p>
-                  </motion.div>
+        {/* 2x2 Grid */}
+        <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {steps.map((step, index) => (
+            <motion.div
+              key={step.number}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.15 }}
+              whileHover={{ y: -4 }}
+              className="group"
+            >
+              <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-8 h-full transition-shadow duration-300 hover:shadow-xl">
+                {/* Step number */}
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/80 text-sm font-display font-bold text-muted-foreground mb-4">
+                  {step.number}
                 </div>
 
-                {/* Center dot */}
-                <motion.div
-                  initial={{ scale: 0 }}
-                  animate={isInView ? { scale: 1 } : {}}
-                  transition={{ delay: index * 0.15 + 0.2 }}
-                  className="hidden lg:flex absolute left-1/2 -translate-x-1/2 w-6 h-6 rounded-full border-4 border-background items-center justify-center"
-                  style={{ background: `linear-gradient(to right, ${step.color.split(' ')[0].replace('from-', '')} , ${step.color.split(' ')[1].replace('to-', '')})` }}
-                >
-                  <div className="w-2 h-2 rounded-full bg-background" />
-                </motion.div>
+                {/* Illustration area */}
+                <div className="min-h-[120px] flex items-center justify-center">
+                  {step.illustration}
+                </div>
 
-                {/* Empty space for alternating layout */}
-                <div className="hidden lg:block lg:w-1/2" />
-              </motion.div>
-            ))}
-          </div>
+                {/* Title & Description */}
+                <h3 className="font-display font-bold text-xl mb-2 text-foreground">{step.title}</h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
