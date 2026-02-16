@@ -68,7 +68,9 @@ const HeroSection = () => {
             </motion.button>
             
           <motion.a
-              href="#contact"
+              href="https://t.me/honzima"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -88,7 +90,7 @@ const HeroSection = () => {
             {[
               { value: '50+', label: 'Projects' },
               { value: '5+', label: 'Years Exp' },
-              { value: '100%', label: 'Satisfaction' },
+              { value: '2M', label: 'Views' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl md:text-4xl font-display font-bold text-gradient">{stat.value}</div>

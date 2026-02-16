@@ -3,13 +3,14 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
 
+const TELEGRAM_URL = 'https://t.me/honzima';
+
 const navLinks = [
-  { href: '#about', label: 'About' },
+  { href: '#about', label: 'Service' },
   { href: '#portfolio', label: 'Portfolio' },
-  { href: '#tools', label: 'Tools' },
   { href: '#process', label: 'Process' },
-  { href: '#pricing', label: 'Pricing' },
-  { href: '#contact', label: 'Contact' },
+  { href: '#testimonials', label: 'Review' },
+  { href: '#pricing', label: 'Price' },
 ];
 
 const Navigation = () => {
@@ -81,13 +82,15 @@ const Navigation = () => {
 
             {/* CTA Button */}
             <motion.a
-              href="#contact"
+              href={TELEGRAM_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               className="px-6 py-2.5 rounded-full font-display font-semibold text-sm text-primary-foreground"
               style={{ background: 'var(--gradient-primary)' }}
             >
-              Hire Me
+              Contact
             </motion.a>
           </div>
 
@@ -119,12 +122,14 @@ const Navigation = () => {
             </a>
           ))}
           <a
-            href="#contact"
+            href={TELEGRAM_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             onClick={() => setIsMobileMenuOpen(false)}
             className="px-8 py-3 rounded-full font-display font-semibold text-primary-foreground mt-4"
             style={{ background: 'var(--gradient-primary)' }}
           >
-            Hire Me
+            Contact
           </a>
         </div>
       </motion.div>
