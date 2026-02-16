@@ -47,29 +47,11 @@ const testimonials: Testimonial[] = [
     name: "Aliza Khan",
     role: "Brand Strategist",
   },
-  {
-    text: "Our product launch video was a massive success thanks to Honzima's incredible editing skills and creative direction.",
-    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Farhan Siddiqui",
-    role: "Product Manager",
-  },
-  {
-    text: "Honzima brings stories to life. The emotional depth in the documentary edit moved our entire team to tears.",
-    image: "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Sana Sheikh",
-    role: "Documentary Producer",
-  },
-  {
-    text: "Professional, creative, and always delivers on time. Honzima is our go-to editor for all video projects.",
-    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Hassan Ali",
-    role: "Agency Owner",
-  },
 ];
 
-const firstColumn = testimonials.slice(0, 3);
-const secondColumn = testimonials.slice(3, 6);
-const thirdColumn = testimonials.slice(6, 9);
+const firstColumn = testimonials.slice(0, 2);
+const secondColumn = testimonials.slice(2, 4);
+const thirdColumn = testimonials.slice(4, 6);
 
 // --- Sub-Components ---
 const TestimonialsColumn = ({
