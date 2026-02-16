@@ -1,128 +1,111 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Clock, Zap, Heart } from 'lucide-react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
+import { MonitorPlay, Flag, Subtitles, Sparkles, MousePointerClick, Layers, PackageCheck, TrendingUp } from 'lucide-react';
+
+const services = [
+  {
+    title: 'Youtube Shorts Editing',
+    description: 'We turn raw clips into high-retention, caption-packed vertical videos that pop on Reels, Shorts, and TikTok. Great for content repurposing and explosive growth.',
+    tags: [
+      { icon: MonitorPlay, label: 'Snappy Pacing' },
+      { icon: Flag, label: 'Viral-Ready' },
+      { icon: Subtitles, label: 'Subtitled' },
+    ],
+    colSpan: 'md:col-span-3',
+  },
+  {
+    title: 'Long Form Edits',
+    description: 'From vlogs to deep dives, we trim the fluff, tighten the pacing.',
+    tags: [
+      { icon: Sparkles, label: 'Retention-Driven' },
+    ],
+    colSpan: 'md:col-span-2',
+  },
+  {
+    title: 'Thumbnail Design',
+    description: 'From vlogs to deep dives, we trim the fluff, tighten the pacing.',
+    tags: [
+      { icon: MousePointerClick, label: 'Click Magnet' },
+    ],
+    colSpan: 'md:col-span-2',
+  },
+  {
+    title: 'Content Repurposing Package',
+    description: 'One video, 10 pieces of content — cut into Shorts, Reels, quote cards, and teasers. Perfect for creators who want to stay visible everywhere.',
+    tags: [
+      { icon: Layers, label: 'Multi-Platform' },
+      { icon: PackageCheck, label: 'Batch Delivery' },
+      { icon: TrendingUp, label: 'Quick' },
+    ],
+    colSpan: 'md:col-span-3',
+  },
+];
+
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const features = [
-    { icon: Award, title: 'Quality First', desc: 'Every frame matters' },
-    { icon: Clock, title: 'Fast Delivery', desc: 'On-time, every time' },
-    { icon: Zap, title: 'Creative Edge', desc: 'Unique visual style' },
-    { icon: Heart, title: 'Passion Driven', desc: 'Love what I do' },
-  ];
-
   return (
     <section id="about" ref={ref} className="section-padding relative overflow-hidden">
-      {/* Background accent */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]" />
-      
+
       <div className="container-custom relative z-10">
-        <div className="grid lg:grid-cols-2 gap-16 items-center">
-          {/* Left - Creative grid */}
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-            className="relative"
-          >
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="glass-card aspect-square flex items-center justify-center cursor-pointer"
-                >
-                  <div className="text-center">
-                    <div className="text-5xl font-display font-bold text-gradient mb-2">5+</div>
-                    <div className="text-muted-foreground text-sm">Years Experience</div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="glass-card p-6 cursor-pointer"
-                  style={{ background: 'var(--gradient-primary)' }}
-                >
-                  <p className="font-display font-semibold text-primary-foreground text-lg">
-                    "Creativity is intelligence having fun"
+        {/* Header */}
+        <div className="text-center mb-16">
+          <BlurTextBlock delay={0}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/60 text-sm font-medium text-muted-foreground">
+              <span className="text-primary">★</span> Services
+            </span>
+          </BlurTextBlock>
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4 text-foreground">
+            <BlurText delay={0.1} className="text-foreground">What We Do</BlurText>{' '}
+            <BlurText delay={0.2} className="text-foreground">Best</BlurText>
+          </h2>
+          <BlurTextBlock delay={0.3}>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              We craft scroll-stopping edits that keep your audience hooked and your content looking top-tier.
+            </p>
+          </BlurTextBlock>
+        </div>
+
+        {/* Services Grid - bento style */}
+        <div className="grid md:grid-cols-5 gap-5 max-w-5xl mx-auto">
+          {services.map((service, index) => (
+            <motion.div
+              key={service.title}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : {}}
+              transition={{ delay: index * 0.12 }}
+              whileHover={{ y: -4 }}
+              className={`group ${service.colSpan}`}
+            >
+              <div className="h-full rounded-2xl bg-foreground/95 dark:bg-card p-6 md:p-8 flex flex-col justify-between min-h-[260px] border border-border/10">
+                <div>
+                  <h3 className="font-display font-bold text-xl mb-3 text-background dark:text-foreground">
+                    {service.title}
+                  </h3>
+                  <p className="text-background/60 dark:text-muted-foreground text-sm leading-relaxed">
+                    {service.description}
                   </p>
-                </motion.div>
+                </div>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mt-6">
+                  {service.tags.map((tag) => (
+                    <span
+                      key={tag.label}
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-background/20 dark:border-border/50 text-xs font-medium text-background/70 dark:text-muted-foreground"
+                    >
+                      <tag.icon className="w-3.5 h-3.5 text-primary" />
+                      {tag.label}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="space-y-4 pt-8">
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="glass-card aspect-[4/3] cursor-pointer"
-                >
-                  <div className="h-full flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full border-2 border-primary flex items-center justify-center animate-pulse-glow">
-                      <Zap className="w-8 h-8 text-primary" />
-                    </div>
-                  </div>
-                </motion.div>
-                <motion.div
-                  whileHover={{ scale: 1.03, y: -4 }}
-                  transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className="glass-card aspect-square flex items-center justify-center cursor-pointer"
-                >
-                  <div className="text-center">
-                    <div className="text-5xl font-display font-bold text-gradient-accent mb-2">50+</div>
-                    <div className="text-muted-foreground text-sm">Projects Done</div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
-          </motion.div>
-          
-          {/* Right - Content */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          >
-            <BlurTextBlock delay={0} className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-              About Me
-            </BlurTextBlock>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
-              <BlurText delay={0.1} className="text-foreground">Crafting Visual Stories That</BlurText>{' '}
-              <BlurText delay={0.3} className="text-teal-500">Resonate</BlurText>
-            </h2>
-            <BlurTextBlock delay={0.4} className="text-muted-foreground text-lg leading-relaxed mb-6">
-              I'm Honzima, a passionate video editor with over 5 years of experience in creating 
-              compelling visual content. From short-form TikTok videos to cinematic long-form 
-              content, I bring stories to life through meticulous editing and creative vision.
-            </BlurTextBlock>
-            <BlurTextBlock delay={0.5} className="text-muted-foreground leading-relaxed mb-8">
-              My expertise spans across color grading, motion graphics, sound design, and 
-              storytelling. I believe every project deserves a unique approach that captures 
-              its essence and connects with the audience on an emotional level.
-            </BlurTextBlock>
-            
-            {/* Feature grid */}
-            <div className="grid grid-cols-2 gap-4">
-              {features.map((feature, index) => (
-                <motion.div
-                  key={feature.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={isInView ? { opacity: 1, y: 0 } : {}}
-                  transition={{ delay: 0.4 + index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-all duration-300 cursor-pointer"
-                >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <div className="font-display font-semibold">{feature.title}</div>
-                    <div className="text-sm text-muted-foreground">{feature.desc}</div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>
