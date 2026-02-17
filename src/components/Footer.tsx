@@ -26,11 +26,11 @@ const Footer = () => {
           {/* Brand */}
           <div>
             <a href="#" className="font-display font-bold text-3xl inline-block mb-4">
-              <span className="text-primary">H</span>
-              <span className="text-foreground">onzima</span>
+              <span className="text-gradient">Hon</span>
+              <span className="text-foreground">zima</span>
             </a>
             <p className="text-muted-foreground max-w-xs">
-              Transforming raw footage into cinematic masterpieces. Let's create something amazing together.
+              Helping creators and brands stand out through creative edits.
             </p>
           </div>
           
@@ -51,28 +51,23 @@ const Footer = () => {
             </ul>
           </div>
           
-          {/* Newsletter */}
+          {/* Social */}
           <div>
-            <h4 className="font-display font-semibold mb-4">Stay Updated</h4>
+            <h4 className="font-display font-semibold mb-4">Connect</h4>
             <p className="text-muted-foreground text-sm mb-4">
-              Subscribe for tips, tutorials, and updates.
+              Let's work together on your next project.
             </p>
-            <form className="flex gap-2">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 px-4 py-2.5 rounded-xl bg-secondary/50 border border-border/50 focus:border-primary focus:outline-none text-sm"
-              />
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                type="submit"
-                className="px-4 py-2.5 rounded-xl font-semibold text-sm text-primary-foreground"
-                style={{ background: 'var(--gradient-primary)' }}
-              >
-                Join
-              </motion.button>
-            </form>
+            <motion.a
+              href="https://t.me/honzima"
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="inline-block px-6 py-2.5 rounded-xl font-semibold text-sm text-primary-foreground"
+              style={{ background: 'var(--gradient-primary)' }}
+            >
+              Get in Touch
+            </motion.a>
           </div>
         </div>
         

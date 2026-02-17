@@ -49,7 +49,7 @@ const HeroSection = () => {
           </h1>
           
           <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 font-light">
-            Transforming raw footage into cinematic masterpieces. I craft stories that captivate and inspire.
+            Helping creators and brands stand out through creative edits.
           </BlurTextBlock>
           
           <div className="flex flex-col sm:flex-row gap-4">
@@ -89,8 +89,8 @@ const HeroSection = () => {
           >
             {[
               { value: '50+', label: 'Projects' },
-              { value: '5+', label: 'Years Exp' },
-              { value: '2M', label: 'Views' },
+              { value: '3+', label: 'Years Exp' },
+              { value: '1M+', label: 'Views' },
             ].map((stat) => (
               <div key={stat.label}>
                 <div className="text-3xl md:text-4xl font-display font-bold text-gradient">{stat.value}</div>
@@ -105,7 +105,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative"
+          className="relative hidden lg:block"
         >
           <div className="relative aspect-[2/4] max-w-md mx-auto">
             {/* Three concentric circle lines */}

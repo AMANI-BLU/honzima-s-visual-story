@@ -45,7 +45,7 @@ const Navigation = () => {
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <span className="text-gradient">H</span>onzima
+            <span className="text-gradient">Hon</span>zima
           </motion.a>
 
           {/* Desktop Navigation */}

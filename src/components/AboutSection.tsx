@@ -34,7 +34,7 @@ const AboutSection = () => {
                   className="glass-card aspect-square flex items-center justify-center cursor-pointer"
                 >
                   <div className="text-center">
-                    <div className="text-5xl font-display font-bold text-gradient mb-2">5+</div>
+                    <div className="text-5xl font-display font-bold text-gradient mb-2">3+</div>
                     <div className="text-muted-foreground text-sm">Years Experience</div>
                   </div>
                 </motion.div>
@@ -56,8 +56,9 @@ const AboutSection = () => {
                   className="glass-card aspect-[4/3] cursor-pointer"
                 >
                   <div className="h-full flex items-center justify-center">
-                    <div className="w-16 h-16 rounded-full border-2 border-primary flex items-center justify-center animate-pulse-glow">
-                      <Zap className="w-8 h-8 text-primary" />
+                    <div className="text-center">
+                      <div className="text-5xl font-display font-bold text-gradient mb-2">1M+</div>
+                      <div className="text-muted-foreground text-sm">Views</div>
                     </div>
                   </div>
                 </motion.div>
@@ -88,14 +89,8 @@ const AboutSection = () => {
               <BlurText delay={0.3} className="text-teal-500">Resonate</BlurText>
             </h2>
             <BlurTextBlock delay={0.4} className="text-muted-foreground text-lg leading-relaxed mb-6">
-              I'm Honzima, a passionate video editor with over 5 years of experience in creating 
-              compelling visual content. From short-form TikTok videos to cinematic long-form 
-              content, I bring stories to life through meticulous editing and creative vision.
-            </BlurTextBlock>
-            <BlurTextBlock delay={0.5} className="text-muted-foreground leading-relaxed mb-8">
-              My expertise spans across color grading, motion graphics, sound design, and 
-              storytelling. I believe every project deserves a unique approach that captures 
-              its essence and connects with the audience on an emotional level.
+              I partner with creators and brands to turn ideas into engaging, high-quality videos. 
+              Results-focused, fast delivery, reliable quality.
             </BlurTextBlock>
             
             <div className="grid grid-cols-2 gap-4">
