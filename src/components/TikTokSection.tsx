@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Heart, MessageCircle, Share2, Bookmark, Music2 } from 'lucide-react';
+import { Heart, MessageCircle, Share2, Bookmark } from 'lucide-react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
+import { Tiles } from '@/components/ui/tiles';
+import heroImage from '@/assets/honzima-hero.png';
 
 const tiktokComments = [
   {
@@ -58,6 +60,11 @@ const TikTokSection = () => {
 
   return (
     <section ref={ref} className="section-padding relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute right-0 top-1/4 w-[500px] h-[500px] bg-pink-500/10 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
@@ -75,14 +82,14 @@ const TikTokSection = () => {
               <div className="relative bg-foreground dark:bg-background rounded-[2.5rem] p-3 border border-border/50">
                 {/* Screen content */}
                 <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-gradient-to-b from-muted to-card">
-                  {/* Video placeholder */}
-                  <div className="absolute inset-0 flex items-center justify-center">
-                    <div className="text-center">
-                      <div className="w-20 h-20 rounded-full bg-primary/20 flex items-center justify-center mx-auto mb-4">
-                        <Music2 className="w-10 h-10 text-primary" />
-                      </div>
-                      <p className="text-sm text-muted-foreground">@honzima_edits</p>
-                    </div>
+                  {/* Honzima's photo */}
+                  <div className="absolute inset-0">
+                    <img
+                      src={heroImage}
+                      alt="Honzima"
+                      className="w-full h-full object-cover object-top"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </div>
                   
                   {/* TikTok UI elements */}
@@ -91,32 +98,32 @@ const TikTokSection = () => {
                       <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
                         <Heart className="w-5 h-5 text-primary fill-primary" />
                       </div>
-                      <span className="text-[10px] mt-1">256K</span>
+                      <span className="text-[10px] mt-1 text-white">256K</span>
                     </button>
                     <button className="flex flex-col items-center">
                       <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
                         <MessageCircle className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] mt-1">1.2K</span>
+                      <span className="text-[10px] mt-1 text-white">1.2K</span>
                     </button>
                     <button className="flex flex-col items-center">
                       <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
                         <Bookmark className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] mt-1">45K</span>
+                      <span className="text-[10px] mt-1 text-white">45K</span>
                     </button>
                     <button className="flex flex-col items-center">
                       <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
                         <Share2 className="w-5 h-5" />
                       </div>
-                      <span className="text-[10px] mt-1">Share</span>
+                      <span className="text-[10px] mt-1 text-white">Share</span>
                     </button>
                   </div>
                   
                   {/* Username at bottom */}
                   <div className="absolute left-3 bottom-4 right-16">
-                    <p className="font-semibold text-sm">@honzima_edits</p>
-                    <p className="text-xs text-muted-foreground mt-1">Smooth transition tutorial ✨ #editing #videoeditor #fyp</p>
+                    <p className="font-semibold text-sm text-white">@honzima_edits</p>
+                    <p className="text-xs text-white/70 mt-1">Smooth transition tutorial ✨ #editing #videoeditor #fyp</p>
                   </div>
                 </div>
               </div>
@@ -133,11 +140,11 @@ const TikTokSection = () => {
             transition={{ delay: 0.2 }}
           >
             <BlurTextBlock delay={0}>
-              <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-                Social Proof
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/60 text-sm font-medium text-muted-foreground">
+                <span className="text-primary">★</span> Social Proof
               </span>
             </BlurTextBlock>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4">
               <BlurText delay={0.1}>What the</BlurText>{' '}
               <BlurText delay={0.2} className="text-teal-500">Community</BlurText>{' '}
               <BlurText delay={0.3}>Says</BlurText>

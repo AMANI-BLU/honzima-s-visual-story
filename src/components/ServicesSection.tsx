@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { MonitorPlay, Flag, Subtitles, Sparkles, MousePointerClick, Layers, PackageCheck, TrendingUp } from 'lucide-react';
+import { Tiles } from '@/components/ui/tiles';
 
 const services = [
   {
@@ -49,6 +50,11 @@ const ServicesSection = () => {
 
   return (
     <section id="services" ref={ref} className="section-padding relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]" />
 
       <div className="container-custom relative z-10">
