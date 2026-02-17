@@ -66,7 +66,6 @@ const Navigation = () => {
 
           {/* Actions */}
           <div className="hidden md:flex items-center gap-4">
-            {/* Theme Toggle */}
             {mounted && (
               <motion.button
                 whileHover={{ scale: 1.1 }}
@@ -80,7 +79,6 @@ const Navigation = () => {
               </motion.button>
             )}
 
-            {/* CTA Button */}
             <motion.a
               href={TELEGRAM_URL}
               target="_blank"
@@ -121,6 +119,19 @@ const Navigation = () => {
               {link.label}
             </a>
           ))}
+          
+          {/* Theme Toggle for Mobile */}
+          {mounted && (
+            <button
+              onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+              className="p-3 rounded-full bg-secondary/50 hover:bg-secondary transition-colors relative w-12 h-12 flex items-center justify-center"
+              aria-label="Toggle theme"
+            >
+              <Sun className="h-5 w-5 rotate-0 scale-100 transition-transform dark:-rotate-90 dark:scale-0 absolute" />
+              <Moon className="h-5 w-5 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100 absolute" />
+            </button>
+          )}
+          
           <a
             href={TELEGRAM_URL}
             target="_blank"

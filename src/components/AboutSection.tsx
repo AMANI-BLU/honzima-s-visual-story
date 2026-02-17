@@ -3,6 +3,8 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { Award, Clock, Zap, Heart } from 'lucide-react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
+import { Tiles } from '@/components/ui/tiles';
+
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -16,6 +18,11 @@ const AboutSection = () => {
 
   return (
     <section id="about" ref={ref} className="section-padding relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[100px]" />
       
       <div className="container-custom relative z-10">
@@ -81,10 +88,12 @@ const AboutSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.8, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           >
-            <BlurTextBlock delay={0} className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-              About Me
+            <BlurTextBlock delay={0}>
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/60 text-sm font-medium text-muted-foreground">
+                <span className="text-primary">★</span> About Me
+              </span>
             </BlurTextBlock>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+            <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4 text-foreground">
               <BlurText delay={0.1} className="text-foreground">Crafting Visual Stories That</BlurText>{' '}
               <BlurText delay={0.3} className="text-teal-500">Resonate</BlurText>
             </h2>

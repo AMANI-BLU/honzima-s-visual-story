@@ -3,6 +3,7 @@ import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Upload, Wand2, MessageSquare, Rocket } from 'lucide-react';
+import { Tiles } from '@/components/ui/tiles';
 
 const steps = [
   {
@@ -86,16 +87,21 @@ const ProcessSection = () => {
 
   return (
     <section id="process" ref={ref} className="section-padding relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute left-0 bottom-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-16">
           <BlurTextBlock delay={0}>
-            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-              How I Work
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/60 text-sm font-medium text-muted-foreground">
+              <span className="text-primary">★</span> How I Work
             </span>
           </BlurTextBlock>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4 text-foreground">
             <BlurText delay={0.1} className="text-foreground">My Creative</BlurText>{' '}
             <BlurText delay={0.2} className="text-teal-500">Process</BlurText>
           </h2>
@@ -118,17 +124,12 @@ const ProcessSection = () => {
               className="group"
             >
               <div className="rounded-2xl border border-border/50 bg-card p-6 md:p-8 h-full transition-shadow duration-300 hover:shadow-xl">
-                {/* Step number */}
                 <div className="inline-flex items-center justify-center w-10 h-10 rounded-xl border border-border/80 text-sm font-display font-bold text-muted-foreground mb-4">
                   {step.number}
                 </div>
-
-                {/* Illustration area */}
                 <div className="min-h-[120px] flex items-center justify-center">
                   {step.illustration}
                 </div>
-
-                {/* Title & Description */}
                 <h3 className="font-display font-bold text-xl mb-2 text-foreground">{step.title}</h3>
                 <p className="text-muted-foreground text-sm leading-relaxed">{step.description}</p>
               </div>

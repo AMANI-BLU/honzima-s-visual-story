@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
+import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
+import { Tiles } from '@/components/ui/tiles';
 
 // --- Types ---
 interface Testimonial {
@@ -119,7 +121,11 @@ const TestimonialsColumn = ({
 const TestimonialV2 = () => {
   return (
     <section id="testimonials" className="section-padding relative overflow-hidden">
-      {/* Background accent */}
+      {/* Grid Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
       
       <div className="container-custom relative z-10">
@@ -130,18 +136,23 @@ const TestimonialV2 = () => {
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="text-center mb-16"
         >
-          <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-medium text-muted-foreground">Testimonials</span>
-          </span>
+          <BlurTextBlock delay={0}>
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/60 text-sm font-medium text-muted-foreground">
+              <span className="text-primary">★</span> Testimonials
+            </span>
+          </BlurTextBlock>
           
-          <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">
-            What <span className="text-gradient">Clients</span> Say
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4">
+            <BlurText delay={0.1}>What</BlurText>{' '}
+            <BlurText delay={0.2} className="text-teal-500">Clients</BlurText>{' '}
+            <BlurText delay={0.3}>Say</BlurText>
           </h2>
           
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            Discover how I've helped creators and businesses elevate their video content.
-          </p>
+          <BlurTextBlock delay={0.4}>
+            <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
+              Discover how I've helped creators and businesses elevate their video content.
+            </p>
+          </BlurTextBlock>
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">

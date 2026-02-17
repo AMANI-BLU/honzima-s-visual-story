@@ -2,6 +2,7 @@ import { useRef } from 'react';
 import { useInView } from 'framer-motion';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { PricingCards } from '@/components/ui/pricing-cards';
+import { Tiles } from '@/components/ui/tiles';
 
 const pricingPlans = [
   {
@@ -69,16 +70,21 @@ const PricingSection = () => {
 
   return (
     <section id="pricing" ref={ref} className="relative overflow-hidden">
+      {/* Grid Background */}
+      <div className="absolute inset-0 overflow-hidden">
+        <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
+      </div>
+      <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute right-1/4 bottom-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-8">
           <BlurTextBlock delay={0}>
-            <span className="text-primary font-display font-semibold text-sm uppercase tracking-widest">
-              Pricing
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border/60 text-sm font-medium text-muted-foreground">
+              <span className="text-primary">★</span> Pricing
             </span>
           </BlurTextBlock>
-          <h2 className="text-4xl md:text-5xl font-display font-bold mt-4 mb-6">
+          <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4">
             <BlurText delay={0.1}>Choose Your</BlurText>{' '}
             <BlurText delay={0.2} className="text-teal-500">Package</BlurText>
           </h2>
@@ -90,7 +96,6 @@ const PricingSection = () => {
           plans={pricingPlans}
         />
         
-        {/* Custom quote */}
         <BlurTextBlock delay={0.6}>
           <div className="text-center mt-8">
             <p className="text-muted-foreground">
