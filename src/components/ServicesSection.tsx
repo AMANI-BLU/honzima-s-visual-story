@@ -6,7 +6,7 @@ import { MonitorPlay, Flag, Subtitles, Sparkles, MousePointerClick, Layers, Pack
 
 const services = [
   {
-    title: 'Youtube Shorts Editing',
+    title: 'Short Form Edits',
     description: 'We turn raw clips into high-retention, caption-packed vertical videos that pop on Reels, Shorts, and TikTok. Great for content repurposing and explosive growth.',
     tags: [
       { icon: MonitorPlay, label: 'Snappy Pacing' },
@@ -59,12 +59,12 @@ const ServicesSection = () => {
             </span>
           </BlurTextBlock>
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4 text-foreground">
-            <BlurText delay={0.1} className="text-foreground">What We Do</BlurText>{' '}
-            <BlurText delay={0.2} className="text-foreground">Best</BlurText>
+            <BlurText delay={0.1} className="text-foreground">Services I</BlurText>{' '}
+            <BlurText delay={0.2} className="text-teal-500">Offer</BlurText>
           </h2>
           <BlurTextBlock delay={0.3}>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              We craft scroll-stopping edits that keep your audience hooked and your content looking top-tier.
+              I craft engaging edits that keep your viewer hooked.
             </p>
           </BlurTextBlock>
         </div>

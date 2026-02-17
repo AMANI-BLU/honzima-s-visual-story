@@ -8,8 +8,8 @@ const pricingPlans = [
     id: "starter",
     name: "Starter",
     description: "Perfect for short-form content and social media edits",
-    monthlyPrice: "$99",
-    yearlyPrice: "$79",
+    monthlyPrice: "$49",
+    yearlyPrice: "$39",
     features: [
       { text: "Up to 1 minute video" },
       { text: "Basic color correction" },
@@ -26,8 +26,8 @@ const pricingPlans = [
     id: "pro",
     name: "Professional",
     description: "Ideal for YouTube videos, vlogs, and promos",
-    monthlyPrice: "$299",
-    yearlyPrice: "$249",
+    monthlyPrice: "$149",
+    yearlyPrice: "$119",
     features: [
       { text: "Up to 10 minutes video" },
       { text: "Advanced color grading" },
@@ -46,8 +46,8 @@ const pricingPlans = [
     id: "premium",
     name: "Premium",
     description: "For cinematic projects and high-end production",
-    monthlyPrice: "$599",
-    yearlyPrice: "$499",
+    monthlyPrice: "$349",
+    yearlyPrice: "$299",
     features: [
       { text: "Up to 30 minutes video" },
       { text: "Cinematic color grading" },

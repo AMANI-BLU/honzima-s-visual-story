@@ -120,6 +120,7 @@ const PortfolioSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * index, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className={index === 0 ? 'md:col-span-2' : ''}
             >
               <TestimonialCard testimonial={item} />
             </motion.div>
