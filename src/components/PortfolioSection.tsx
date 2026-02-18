@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { TestimonialCard, type Testimonial } from '@/components/ui/multi-media-testimonial';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
+import { ChevronDown } from 'lucide-react';
 
 const portfolioItems: Testimonial[] = [
   {
@@ -78,15 +79,25 @@ const portfolioItems: Testimonial[] = [
     thumbnail: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&h=600&fit=crop",
     mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
   },
+  {
+    name: "Honzima",
+    designation: "Video Editor",
+    title: "Event Recap",
+    content: "Energetic event highlight reel with crowd shots and speaker moments. Duration: 2:30",
+    thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c6ab43?w=800&h=600&fit=crop",
+    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
+  },
 ];
 
 const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [showAll, setShowAll] = useState(false);
+
+  const displayedItems = showAll ? portfolioItems : portfolioItems.slice(0, 4);
 
   return (
     <section id="portfolio" ref={ref} className="section-padding relative overflow-hidden">
-      {/* Grid Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
       </div>
@@ -109,9 +120,8 @@ const PortfolioSection = () => {
           </BlurTextBlock>
         </div>
 
-        {/* Portfolio Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {portfolioItems.map((item, index) => (
+          {displayedItems.map((item, index) => (
             <motion.div
               key={item.title}
               initial={{ opacity: 0, y: 30 }}
@@ -122,6 +132,20 @@ const PortfolioSection = () => {
             </motion.div>
           ))}
         </div>
+
+        {!showAll && (
+          <div className="text-center mt-10">
+            <motion.button
+              whileHover={{ scale: 1.05, y: -2 }}
+              whileTap={{ scale: 0.98 }}
+              onClick={() => setShowAll(true)}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border/50 font-display font-semibold text-foreground hover:bg-secondary/50 transition-all duration-300"
+            >
+              Show More
+              <ChevronDown className="w-4 h-4" />
+            </motion.button>
+          </div>
+        )}
       </div>
     </section>
   );

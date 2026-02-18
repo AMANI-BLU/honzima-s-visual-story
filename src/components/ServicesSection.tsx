@@ -25,10 +25,10 @@ const services = [
     colSpan: 'md:col-span-2',
   },
   {
-    title: 'Thumbnail Design',
-    description: 'From vlogs to deep dives, we trim the fluff, tighten the pacing.',
+    title: 'Website Development',
+    description: 'Custom websites built to showcase your brand and convert visitors into fans.',
     tags: [
-      { icon: MousePointerClick, label: 'Click Magnet' },
+      { icon: MousePointerClick, label: 'Modern Design' },
     ],
     colSpan: 'md:col-span-2',
   },

@@ -10,7 +10,7 @@ const tiktokComments = [
   {
     id: 1,
     username: '@creative_studio',
-    avatar: '🎨',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
     comment: "This editing is INSANE! The transitions are so smooth 🔥🔥",
     likes: '12.4K',
     time: '2d',
@@ -19,7 +19,7 @@ const tiktokComments = [
   {
     id: 2,
     username: '@filmmaker_pro',
-    avatar: '🎬',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
     comment: "Tutorial please!! I need to learn these color grades 😍",
     likes: '8.2K',
     time: '3d',
@@ -28,7 +28,7 @@ const tiktokComments = [
   {
     id: 3,
     username: '@content_queen',
-    avatar: '👑',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
     comment: "Best editor on TikTok no cap 👏",
     likes: '5.7K',
     time: '4d',
@@ -37,7 +37,7 @@ const tiktokComments = [
   {
     id: 4,
     username: '@motion_design',
-    avatar: '✨',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
     comment: "The pacing is perfect! Every beat hits just right",
     likes: '3.1K',
     time: '5d',
@@ -46,7 +46,7 @@ const tiktokComments = [
   {
     id: 5,
     username: '@video_vibes',
-    avatar: '🎥',
+    avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=face',
     comment: "How do you make it look so effortless? 🤯",
     likes: '2.9K',
     time: '6d',
@@ -75,14 +75,11 @@ const TikTokSection = () => {
             animate={isInView ? { opacity: 1, x: 0 } : {}}
             className="relative"
           >
-            {/* Phone frame */}
             <div className="relative max-w-[320px] mx-auto">
               <div className="absolute -inset-4 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-cyan-500/20 rounded-[3rem] blur-2xl" />
               
               <div className="relative bg-foreground dark:bg-background rounded-[2.5rem] p-3 border border-border/50">
-                {/* Screen content */}
                 <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-gradient-to-b from-muted to-card">
-                  {/* Honzima's photo */}
                   <div className="absolute inset-0">
                     <img
                       src={heroImage}
@@ -92,7 +89,6 @@ const TikTokSection = () => {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </div>
                   
-                  {/* TikTok UI elements */}
                   <div className="absolute right-3 bottom-24 flex flex-col items-center gap-4">
                     <button className="flex flex-col items-center">
                       <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
@@ -120,15 +116,13 @@ const TikTokSection = () => {
                     </button>
                   </div>
                   
-                  {/* Username at bottom */}
                   <div className="absolute left-3 bottom-4 right-16">
-                    <p className="font-semibold text-sm text-white">@honzima_edits</p>
+                    <p className="font-semibold text-sm text-white">@honzimaedits</p>
                     <p className="text-xs text-white/70 mt-1">Smooth transition tutorial ✨ #editing #videoeditor #fyp</p>
                   </div>
                 </div>
               </div>
               
-              {/* Dynamic island */}
               <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground dark:bg-background rounded-full" />
             </div>
           </motion.div>
@@ -155,7 +149,6 @@ const TikTokSection = () => {
               </p>
             </BlurTextBlock>
             
-            {/* Comments list */}
             <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
               {tiktokComments.map((comment, index) => (
                 <motion.div
@@ -166,9 +159,11 @@ const TikTokSection = () => {
                   className="glass-card p-4"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-xl flex-shrink-0">
-                      {comment.avatar}
-                    </div>
+                    <img
+                      src={comment.avatar}
+                      alt={comment.username}
+                      className="w-10 h-10 rounded-full object-cover flex-shrink-0"
+                    />
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-sm">{comment.username}</span>
