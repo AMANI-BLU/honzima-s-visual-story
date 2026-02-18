@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Instagram, Twitter, Youtube, Heart } from 'lucide-react';
+import { Instagram, Heart } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,10 +11,17 @@ const Footer = () => {
     { href: '#contact', label: 'Contact' },
   ];
 
+  const TikTokIcon = () => (
+    <svg className="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+      <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.27 6.27 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V9.06a8.16 8.16 0 004.77 1.52V7.14a4.85 4.85 0 01-1-.45z"/>
+    </svg>
+  );
+
+  const InstagramIcon = () => <Instagram className="w-4 h-4" />;
+
   const socials = [
-    { icon: Instagram, href: '#', label: 'Instagram' },
-    { icon: Twitter, href: '#', label: 'Twitter' },
-    { icon: Youtube, href: '#', label: 'YouTube' },
+    { icon: InstagramIcon, href: 'https://instagram.com/honzimaedits', label: 'Instagram' },
+    { icon: TikTokIcon, href: 'https://tiktok.com/@honzimaedits', label: 'TikTok' },
   ];
 
   return (
@@ -83,11 +90,13 @@ const Footer = () => {
               <motion.a
                 key={social.label}
                 href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 whileHover={{ scale: 1.1, y: -2 }}
                 className="w-10 h-10 rounded-lg bg-secondary/50 hover:bg-primary hover:text-primary-foreground flex items-center justify-center transition-colors"
                 aria-label={social.label}
               >
-                <social.icon className="w-4 h-4" />
+                <social.icon />
               </motion.a>
             ))}
           </div>

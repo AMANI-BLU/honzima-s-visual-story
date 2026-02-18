@@ -9,7 +9,7 @@ const testimonials = [
     id: 1,
     name: 'Sarah Johnson',
     role: 'Content Creator',
-    avatar: '👩‍💼',
+    avatar: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face',
     content: "Honzima transformed my raw footage into a cinematic masterpiece. The attention to detail and creative vision exceeded all my expectations. Highly recommend!",
     rating: 5,
   },
@@ -17,7 +17,7 @@ const testimonials = [
     id: 2,
     name: 'Marcus Chen',
     role: 'Brand Manager',
-    avatar: '👨‍💻',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face',
     content: "Working with Honzima was a game-changer for our brand. The video content increased our engagement by 300%. Professional, creative, and delivers on time.",
     rating: 5,
   },
@@ -25,7 +25,7 @@ const testimonials = [
     id: 3,
     name: 'Emily Rodriguez',
     role: 'YouTuber',
-    avatar: '🎬',
+    avatar: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face',
     content: "I've worked with many editors, but Honzima stands out. The unique style and quick turnaround make every project a breeze. My subscribers love the new look!",
     rating: 5,
   },
@@ -33,7 +33,7 @@ const testimonials = [
     id: 4,
     name: 'David Park',
     role: 'Business Owner',
-    avatar: '👔',
+    avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face',
     content: "Our promotional video looked absolutely stunning. Honzima understood our vision perfectly and delivered beyond expectations. Will definitely work together again!",
     rating: 5,
   },
@@ -96,9 +96,11 @@ const TestimonialsSection = () => {
                 
                 {/* Author */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-secondary flex items-center justify-center text-2xl">
-                    {testimonial.avatar}
-                  </div>
+                  <img
+                    src={testimonial.avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 rounded-full object-cover"
+                  />
                   <div>
                     <div className="font-display font-semibold">{testimonial.name}</div>
                     <div className="text-sm text-muted-foreground">{testimonial.role}</div>
