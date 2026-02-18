@@ -1,100 +1,51 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
-import { useRef, useState } from 'react';
-import { TestimonialCard, type Testimonial } from '@/components/ui/multi-media-testimonial';
+import { useRef, useState, useEffect } from 'react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 import { ChevronDown } from 'lucide-react';
 
-const portfolioItems: Testimonial[] = [
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Travel Vlog Edit",
-    content: "Cinematic travel vlog featuring stunning landscapes and smooth transitions. Duration: 3:45",
-    thumbnail: "https://images.unsplash.com/photo-1536240478700-b869070f9279?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Brand Commercial",
-    content: "High-energy commercial with dynamic cuts and color grading. Duration: 0:30",
-    thumbnail: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Music Video",
-    content: "Stylized music video with creative effects and beat-synced editing. Duration: 4:20",
-    thumbnail: "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Documentary Short",
-    content: "Compelling documentary with narrative storytelling and emotional pacing. Duration: 12:00",
-    thumbnail: "https://images.unsplash.com/photo-1485846234645-a62644f84728?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Product Showcase",
-    content: "Sleek product video with professional lighting and smooth animations. Duration: 1:15",
-    thumbnail: "https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerMeltdowns.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Social Media Reel",
-    content: "Fast-paced social content optimized for engagement. Duration: 0:45",
-    thumbnail: "https://images.unsplash.com/photo-1618172193622-ae2d025f4032?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Fitness Brand Promo",
-    content: "Dynamic fitness brand video with motivational pacing and bold transitions. Duration: 1:30",
-    thumbnail: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Wedding Highlight",
-    content: "Elegant wedding highlight reel with cinematic color grading. Duration: 5:00",
-    thumbnail: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Tech Review",
-    content: "Clean tech review edit with engaging graphics and smooth b-roll integration. Duration: 8:00",
-    thumbnail: "https://images.unsplash.com/photo-1550009158-9ebf69173e03?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4",
-  },
-  {
-    name: "Honzima",
-    designation: "Video Editor",
-    title: "Event Recap",
-    content: "Energetic event highlight reel with crowd shots and speaker moments. Duration: 2:30",
-    thumbnail: "https://images.unsplash.com/photo-1540575467063-178a50c6ab43?w=800&h=600&fit=crop",
-    mediaUrl: "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerJoyrides.mp4",
-  },
+const tiktokVideos = [
+  { id: '7591553435690978571', title: 'Video 1' },
+  { id: '7472405252826778935', title: 'Video 2' },
+  { id: '7503946574997785911', title: 'Video 3' },
+  { id: '7595307565320244536', title: 'Video 4' },
 ];
+
+const TikTokEmbed = ({ videoId, className = '' }: { videoId: string; className?: string }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    // Load TikTok embed script
+    const script = document.createElement('script');
+    script.src = 'https://www.tiktok.com/embed.js';
+    script.async = true;
+    document.body.appendChild(script);
+    return () => {
+      // Cleanup if needed
+    };
+  }, [videoId]);
+
+  return (
+    <div ref={containerRef} className={`flex justify-center ${className}`}>
+      <blockquote
+        className="tiktok-embed"
+        cite={`https://www.tiktok.com/@honzimaedits/video/${videoId}`}
+        data-video-id={videoId}
+        style={{ maxWidth: '100%', minWidth: '325px' }}
+      >
+        <section />
+      </blockquote>
+    </div>
+  );
+};
 
 const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [showAll, setShowAll] = useState(false);
 
-  const displayedItems = showAll ? portfolioItems : portfolioItems.slice(0, 4);
+  const displayedItems = showAll ? tiktokVideos : tiktokVideos.slice(0, 4);
 
   return (
     <section id="portfolio" ref={ref} className="section-padding relative overflow-hidden">
@@ -120,20 +71,23 @@ const PortfolioSection = () => {
           </BlurTextBlock>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedItems.map((item, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {displayedItems.map((video, index) => (
             <motion.div
-              key={item.title}
+              key={video.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * index, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className={index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}
             >
-              <TestimonialCard testimonial={item} />
+              <div className="rounded-xl overflow-hidden border border-border/50 bg-card p-2">
+                <TikTokEmbed videoId={video.id} />
+              </div>
             </motion.div>
           ))}
         </div>
 
-        {!showAll && (
+        {!showAll && tiktokVideos.length > 4 && (
           <div className="text-center mt-10">
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
