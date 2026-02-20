@@ -40,12 +40,13 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">Professional Video Editor</span>
+            <span className="text-sm font-medium text-muted-foreground">Creative video editor</span>
           </motion.div>
           
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-6 text-foreground">
-            <BlurText delay={0.3} className="block text-foreground">Hi, I'm</BlurText>
-            <BlurText delay={0.5} className="text-teal-500">Honzima</BlurText>
+            <BlurText delay={0.3} className="block text-foreground">Crafting Videos</BlurText>
+            <BlurText delay={0.5} className="block text-foreground">That Capture</BlurText>
+            <BlurText delay={0.7} className="text-teal-500">Attention.</BlurText>
           </h1>
           
           <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 font-light">
@@ -53,11 +54,12 @@ const HeroSection = () => {
           </BlurTextBlock>
           
           <div className="flex flex-col sm:flex-row gap-4">
-          <motion.button
+            <motion.a
+              href="#portfolio"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="group relative px-8 py-4 rounded-full overflow-hidden font-display font-semibold text-primary-foreground shadow-lg hover:shadow-xl"
+              className="group relative px-8 py-4 rounded-full overflow-hidden font-display font-semibold text-primary-foreground shadow-lg hover:shadow-xl text-center"
               style={{ background: 'var(--gradient-primary)' }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -65,7 +67,7 @@ const HeroSection = () => {
                 View My Work
               </span>
               <div className="absolute inset-0 bg-foreground/20 opacity-0 group-hover:opacity-100 transition-opacity" />
-            </motion.button>
+            </motion.a>
             
           <motion.a
               href="https://t.me/honzima"

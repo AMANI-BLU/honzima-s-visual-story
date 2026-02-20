@@ -4,56 +4,65 @@ import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 import { CircleCheck, ArrowRight } from 'lucide-react';
 
+const TELEGRAM_URL = 'https://t.me/honzima';
+
 const pricingPlans = [
   {
-    id: "basic",
-    name: "Basic Package",
+    id: "shortform",
+    name: "SHORT FORM EDITING",
     price: "1,500 ETB",
     per: "per video",
-    length: "Up to 2 minutes",
+    length: "Up to 1 minute",
     features: [
-      "Rough Cut",
-      "Color Grading",
-      "Audio Editing",
-      "Smooth Transitions",
-      "Background Music",
-      "Motion Graphics",
-      "Text Animation",
-      "Sound Effects",
+      "Clean cut & pacing",
+      "Hook optimization",
+      "Basic color grading",
+      "Audio cleanup",
+      "Text Animations",
+      "Smooth transitions",
+      "Background music",
+      "Motion graphics",
     ],
-    button: { text: "Get Started", url: "#contact" },
+    highlighted: false,
   },
   {
-    id: "standard",
-    name: "Standard Package",
+    id: "longform-standard",
+    name: "LONG FORM – STANDARD",
     price: "5,500 ETB",
     per: "per video",
     length: "Up to 10 minutes",
     features: [
-      "Everything in Basic",
-      "More detailed editing & storytelling flow",
-      "Advanced motion graphics usage",
-      "Enhanced audio balancing",
-      "More transitions & effects",
+      "Structured storytelling edit",
+      "Content flow optimization",
+      "Scene trimming & pacing control",
+      "Enhanced color correction",
+      "Advanced audio balancing",
+      "B-roll integration",
+      "Lower thirds & branding elements",
+      "Moderate motion graphics",
+      "YouTube-ready export settings",
     ],
-    button: { text: "Upgrade Now", url: "#contact" },
     highlighted: true,
   },
   {
-    id: "premium",
-    name: "Premium Package",
+    id: "longform-premium",
+    name: "LONG FORM – PREMIUM",
     price: "10,000 ETB",
     per: "per video",
     length: "Up to 20 minutes",
     features: [
-      "Everything in Standard",
+      "Full narrative structuring",
+      "Multi-camera synchronization",
       "Cinematic color grading",
-      "Advanced motion graphics & animations",
       "Professional sound design",
-      "Complex cuts (multi-camera / storytelling)",
-      "High-quality finishing & polishing",
+      "Advanced motion graphics & animations",
+      "Custom intro/outro sequence",
+      "Complex transitions & visual effects",
+      "Detailed polishing & finishing",
+      "Thumbnail frame suggestion",
+      "Platform optimization strategy",
     ],
-    button: { text: "Go Premium", url: "#contact" },
+    highlighted: false,
   },
 ];
 
@@ -68,7 +77,6 @@ const PricingSection = () => {
         <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
       </div>
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
-      <div className="absolute right-1/4 bottom-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px]" />
       
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
@@ -106,7 +114,7 @@ const PricingSection = () => {
                 <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r from-primary via-primary/80 to-primary" />
               )}
 
-              <h3 className="font-display font-bold text-xl mb-1 text-foreground">{plan.name}</h3>
+              <h3 className="font-display font-bold text-lg mb-1 text-foreground">{plan.name}</h3>
               <div className="flex items-baseline gap-1 mt-2">
                 <span className="text-3xl md:text-4xl font-display font-bold text-foreground">{plan.price}</span>
               </div>
@@ -126,7 +134,9 @@ const PricingSection = () => {
               </ul>
 
               <a
-                href={plan.button.url}
+                href={TELEGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`mt-8 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-sm transition-all ${
                   plan.highlighted
                     ? 'text-primary-foreground shadow-lg'
@@ -134,7 +144,7 @@ const PricingSection = () => {
                 }`}
                 style={plan.highlighted ? { background: 'var(--gradient-primary)' } : undefined}
               >
-                {plan.button.text}
+                Get Started
                 <ArrowRight className="w-4 h-4" />
               </a>
             </motion.div>
@@ -145,7 +155,7 @@ const PricingSection = () => {
           <div className="text-center mt-10">
             <p className="text-muted-foreground">
               Need something custom?{' '}
-              <a href="#contact" className="text-primary hover:underline font-semibold">
+              <a href={TELEGRAM_URL} target="_blank" rel="noopener noreferrer" className="text-primary hover:underline font-semibold">
                 Let's talk about your project
               </a>
             </p>

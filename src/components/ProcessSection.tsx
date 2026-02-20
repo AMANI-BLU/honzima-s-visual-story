@@ -8,8 +8,8 @@ import { Tiles } from '@/components/ui/tiles';
 const steps = [
   {
     number: '01',
-    title: 'Drop Your Footage',
-    description: 'Upload your raw clips — WeTransfer, Google Drive, Dropbox — whatever works for you.',
+    title: 'Send Your Files',
+    description: 'Upload your raw videos via WeTransfer, Google Drive, Telegram — whatever is easiest for you.',
     illustration: (
       <div className="flex items-center justify-center gap-3 py-6">
         <div className="w-12 h-12 rounded-xl bg-primary/20 flex items-center justify-center shadow-md">
@@ -35,8 +35,8 @@ const steps = [
   },
   {
     number: '02',
-    title: 'We Do Our Magic',
-    description: 'We cut, trim, color-grade, and add engaging transitions.',
+    title: 'Edit & Deliver',
+    description: 'I cut, trim, color grade, and add smooth, engaging effects to bring your video to life.',
     illustration: (
       <div className="flex items-center justify-center gap-4 py-6">
         <div className="px-4 py-2 rounded-lg bg-[#00005b] text-[#9999ff] font-bold text-lg shadow-md">Ae</div>
@@ -47,8 +47,8 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Feedback? Easy',
-    description: 'Want something changed? We offer smooth revision rounds to make sure everything is perfect.',
+    title: 'Need Any Changes?',
+    description: 'Want adjustments? No worries. I offer smooth revision rounds until everything looks perfect.',
     illustration: (
       <div className="flex flex-col items-center gap-3 py-4">
         <div className="flex items-center gap-2">
@@ -67,8 +67,8 @@ const steps = [
   },
   {
     number: '04',
-    title: 'Upload & Grow',
-    description: 'We deliver your final video in ready-to-upload YouTube format.',
+    title: 'Ready to Post',
+    description: 'You receive your final video in a ready-to-upload format for YouTube, TikTok, or Reels.',
     illustration: (
       <div className="flex flex-col items-center gap-3 py-4">
         <div className="flex items-center gap-2 px-4 py-2 rounded-lg bg-foreground/90 text-background text-sm font-medium shadow-md">

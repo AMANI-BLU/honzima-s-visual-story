@@ -1,14 +1,11 @@
 import { motion } from 'framer-motion';
-import { Instagram, Heart } from 'lucide-react';
+import { Instagram } from 'lucide-react';
 
 const Footer = () => {
-  const currentYear = new Date().getFullYear();
-
   const quickLinks = [
-    { href: '#about', label: 'About' },
+    { href: '#services', label: 'About' },
     { href: '#portfolio', label: 'Portfolio' },
     { href: '#pricing', label: 'Pricing' },
-    { href: '#contact', label: 'Contact' },
   ];
 
   const TikTokIcon = () => (
@@ -17,10 +14,8 @@ const Footer = () => {
     </svg>
   );
 
-  const InstagramIcon = () => <Instagram className="w-4 h-4" />;
-
   const socials = [
-    { icon: InstagramIcon, href: 'https://instagram.com/honzimaedits', label: 'Instagram' },
+    { icon: () => <Instagram className="w-4 h-4" />, href: 'https://instagram.com/honzimaedits', label: 'Instagram' },
     { icon: TikTokIcon, href: 'https://tiktok.com/@honzimaedits', label: 'TikTok' },
   ];
 
@@ -80,8 +75,8 @@ const Footer = () => {
         
         {/* Bottom */}
         <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted-foreground flex items-center gap-1">
-            © {currentYear} <span className="text-foreground font-semibold">Honzima</span>. Made with <Heart className="w-4 h-4 text-primary fill-primary" /> All rights reserved.
+          <p className="text-sm text-muted-foreground">
+            ©2026 <span className="text-foreground font-semibold">honzima</span> All rights reserved.
           </p>
           
           {/* Social Links */}

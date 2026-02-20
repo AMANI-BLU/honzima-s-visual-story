@@ -6,7 +6,7 @@ import { useTheme } from 'next-themes';
 const TELEGRAM_URL = 'https://t.me/honzima';
 
 const navLinks = [
-  { href: '#about', label: 'Service' },
+  { href: '#services', label: 'Service' },
   { href: '#portfolio', label: 'Portfolio' },
   { href: '#process', label: 'Process' },
   { href: '#testimonials', label: 'Review' },
