@@ -26,7 +26,7 @@ const HeroSection = () => {
       {/* Noise Overlay */}
       <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
       
-      <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-20">
+      <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-6 md:px-12 lg:px-16 xl:px-20 max-w-screen-xl mx-auto">
         {/* Left Content */}
 <motion.div
           initial={{ opacity: 0, x: -50 }}
@@ -43,7 +43,7 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-muted-foreground">Creative video editor</span>
           </motion.div>
           
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-display font-bold leading-[0.9] mb-6 text-foreground">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[0.95] mb-6 text-foreground">
             <BlurText delay={0.3} className="block text-foreground">Crafting Videos</BlurText>
             <BlurText delay={0.5} className="block text-foreground">That Capture</BlurText>
             <BlurText delay={0.7} className="text-teal-500">Attention.</BlurText>
@@ -82,24 +82,6 @@ const HeroSection = () => {
             </motion.a>
           </div>
           
-          {/* Stats */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.6 }}
-            className="grid grid-cols-3 gap-6 mt-12 pt-8 border-t border-border/30"
-          >
-            {[
-              { value: '50+', label: 'Projects' },
-              { value: '3+', label: 'Years Exp' },
-              { value: '1M+', label: 'Views' },
-            ].map((stat) => (
-              <div key={stat.label}>
-                <div className="text-3xl md:text-4xl font-display font-bold text-gradient">{stat.value}</div>
-                <div className="text-sm text-muted-foreground">{stat.label}</div>
-              </div>
-            ))}
-          </motion.div>
         </motion.div>
         
         {/* Right Image */}

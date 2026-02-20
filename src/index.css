@@ -165,7 +165,7 @@
   }
 
   .container-custom {
-    @apply max-w-7xl mx-auto;
+    @apply max-w-screen-xl mx-auto;
   }
 }
 

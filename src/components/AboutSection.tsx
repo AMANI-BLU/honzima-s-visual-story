@@ -1,19 +1,18 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
-import { Award, Clock, Zap, Heart } from 'lucide-react';
-import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
+import { Calendar, Eye, FolderCheck } from 'lucide-react';
+import { BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 
 const AboutSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
-  const features = [
-    { icon: Award, title: 'Quality First', desc: 'Every frame matters' },
-    { icon: Clock, title: 'Fast Delivery', desc: 'On-time, every time' },
-    { icon: Zap, title: 'Creative Edge', desc: 'Unique visual style' },
-    { icon: Heart, title: 'Passion Driven', desc: 'Love what I do' },
+  const stats = [
+    { icon: Calendar, value: '3+', label: 'Years Experience' },
+    { icon: Eye, value: '1M+', label: 'Views Generated' },
+    { icon: FolderCheck, value: '50+', label: 'Projects Completed' },
   ];
 
   return (
@@ -93,32 +92,25 @@ const AboutSection = () => {
                 <span className="text-primary">★</span> About Me
               </span>
             </BlurTextBlock>
-            <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4 text-foreground">
-              <BlurText delay={0.1} className="text-foreground">Crafting Visual Stories That</BlurText>{' '}
-              <BlurText delay={0.3} className="text-teal-500">Resonate</BlurText>
-            </h2>
-            <BlurTextBlock delay={0.4} className="text-muted-foreground text-lg leading-relaxed mb-6">
-              I partner with creators and brands to turn ideas into engaging, high-quality videos. 
-              Results-focused, fast delivery, reliable quality.
+            <BlurTextBlock delay={0.1} className="text-muted-foreground text-lg leading-relaxed mt-6 mb-8">
+              I partner with creators and brands to turn ideas into engaging, high-quality videos. Results-focused, fast delivery, reliable quality.
             </BlurTextBlock>
             
-            <div className="grid grid-cols-2 gap-4">
-              {features.map((feature, index) => (
+            <div className="grid grid-cols-3 gap-4">
+              {stats.map((stat, index) => (
                 <motion.div
-                  key={feature.title}
+                  key={stat.label}
                   initial={{ opacity: 0, y: 20 }}
                   animate={isInView ? { opacity: 1, y: 0 } : {}}
                   transition={{ delay: 0.4 + index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
-                  whileHover={{ scale: 1.02, x: 4 }}
-                  className="flex items-start gap-3 p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-all duration-300 cursor-pointer"
+                  whileHover={{ scale: 1.02, y: -4 }}
+                  className="flex flex-col items-center gap-2 p-4 rounded-xl bg-secondary/30 hover:bg-secondary/50 transition-all duration-300 cursor-pointer text-center"
                 >
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <feature.icon className="w-5 h-5 text-primary" />
+                    <stat.icon className="w-5 h-5 text-primary" />
                   </div>
-                  <div>
-                    <div className="font-display font-semibold">{feature.title}</div>
-                    <div className="text-sm text-muted-foreground">{feature.desc}</div>
-                  </div>
+                  <div className="text-2xl font-display font-bold text-gradient">{stat.value}</div>
+                  <div className="text-sm text-muted-foreground">{stat.label}</div>
                 </motion.div>
               ))}
             </div>
