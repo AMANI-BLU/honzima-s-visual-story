@@ -3,51 +3,42 @@ import { motion } from "framer-motion";
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 
-// --- Types ---
 interface Testimonial {
   text: string;
-  image: string;
   name: string;
   role: string;
 }
 
-// --- Data ---
 const testimonials: Testimonial[] = [
   {
-    text: "Honzima's editing transformed our brand videos. The attention to detail and creative storytelling elevated our content beyond expectations.",
-    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Briana Patton",
-    role: "Marketing Director",
+    text: "Working with Honzima elevated our real estate videos to a whole new level. He understands real estate marketing, not just editing.",
+    name: "ETCL Real Estate PLC",
+    role: "Real Estate",
   },
   {
-    text: "Working with Honzima was seamless. Quick turnarounds, amazing quality, and always open to feedback. A true professional.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Bilal Ahmed",
-    role: "Content Creator",
+    text: "Great work! The edit feels smooth and exactly matches my vision.",
+    name: "Chereka Kids",
+    role: "Small Business",
   },
   {
-    text: "The cinematic quality Honzima brings to every project is unmatched. Our YouTube channel grew 300% after the rebrand.",
-    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Sarah Malik",
-    role: "YouTuber",
+    text: "Working with Honzima was a great experience. We will definitely be coming back for more edits.",
+    name: "M Y",
+    role: "Travel Agency",
   },
   {
-    text: "Honzima understood our vision from day one. The final product exceeded all expectations and resonated with our audience.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Omar Raza",
-    role: "CEO, TechStart",
+    text: "You really understood what I wanted — the video came out better than I expected.",
+    name: "Maffis Clothing",
+    role: "Small Business",
   },
   {
-    text: "Fast, creative, and incredibly talented. Honzima delivered viral-worthy content that boosted our engagement significantly.",
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Zainab Hussain",
-    role: "Social Media Manager",
+    text: "Yo this came out way better than I expected, thank you!",
+    name: "Alkaba",
+    role: "Travel Agency",
   },
   {
-    text: "The editing style is unique and modern. Honzima knows how to capture attention in the first 3 seconds every time.",
-    image: "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&q=80&w=150&h=150",
-    name: "Aliza Khan",
-    role: "Brand Strategist",
+    text: "The edit looks so clean, appreciate it!",
+    name: "Flipper International School",
+    role: "Education",
   },
 ];
 
@@ -55,7 +46,6 @@ const firstColumn = testimonials.slice(0, 2);
 const secondColumn = testimonials.slice(2, 4);
 const thirdColumn = testimonials.slice(4, 6);
 
-// --- Sub-Components ---
 const TestimonialsColumn = ({
   className,
   testimonials,
@@ -79,7 +69,7 @@ const TestimonialsColumn = ({
       >
         {[...Array(2)].map((_, idx) => (
           <React.Fragment key={idx}>
-            {testimonials.map(({ text, image, name, role }, i) => (
+            {testimonials.map(({ text, name, role }, i) => (
               <motion.div
                 key={`${idx}-${i}`}
                 whileHover={{ scale: 1.02, y: -4 }}
@@ -90,11 +80,9 @@ const TestimonialsColumn = ({
                   "{text}"
                 </p>
                 <div className="flex items-center gap-3">
-                  <img
-                    src={image}
-                    alt={name}
-                    className="w-12 h-12 rounded-full object-cover border-2 border-primary/30"
-                  />
+                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary/30">
+                    <span className="text-lg font-bold text-primary">{name.charAt(0)}</span>
+                  </div>
                   <div>
                     <p className="font-display font-semibold text-foreground">
                       {name}
@@ -110,18 +98,15 @@ const TestimonialsColumn = ({
         ))}
       </motion.div>
       
-      {/* Gradient overlays for smooth fade */}
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
     </div>
   );
 };
 
-// --- Main Testimonials Section ---
 const TestimonialV2 = () => {
   return (
     <section id="testimonials" className="section-padding relative overflow-hidden">
-      {/* Grid Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
       </div>

@@ -2,43 +2,51 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
-import { MonitorPlay, Flag, Subtitles, Sparkles, MousePointerClick, Layers, PackageCheck, TrendingUp } from 'lucide-react';
+import { MonitorPlay, Flag, Subtitles, Sparkles, MousePointerClick, Layers, PackageCheck, TrendingUp, Palette, Globe } from 'lucide-react';
 import { Tiles } from '@/components/ui/tiles';
 
 const services = [
   {
-    title: 'Short Form Edits',
-    description: 'We turn raw clips into high-retention, caption-packed vertical videos that pop on Reels, Shorts, and TikTok. Great for content repurposing and explosive growth.',
+    title: 'Short-Form Edits',
+    description: 'Turn raw clips into scroll-stopping, high-retention videos built for Reels, Shorts, and TikTok. Fast hooks, clean captions, smooth pacing — designed to grab attention and boost engagement.',
     tags: [
-      { icon: MonitorPlay, label: 'Snappy Pacing' },
-      { icon: Flag, label: 'Viral-Ready' },
-      { icon: Subtitles, label: 'Subtitled' },
+      { icon: MonitorPlay, label: 'High-Retention Editing' },
+      { icon: Flag, label: 'Viral-Style Hooks' },
+      { icon: Subtitles, label: 'Clean Captions & Motion' },
+      { icon: TrendingUp, label: 'Fast Delivery' },
     ],
     colSpan: 'md:col-span-3',
   },
   {
-    title: 'Long Form Edits',
-    description: 'From vlogs to deep dives, we trim the fluff, tighten the pacing.',
+    title: 'Long-Form Edits',
+    description: 'Transform long footage into clear, engaging, story-driven videos. We cut the fluff, improve pacing, and keep viewers watching from start to finish.',
     tags: [
-      { icon: Sparkles, label: 'Retention-Driven' },
+      { icon: Sparkles, label: 'YouTube & Documentary Style' },
+      { icon: Layers, label: 'Story + Flow Focused' },
+      { icon: PackageCheck, label: 'Clean Cuts & Sound Design' },
+      { icon: TrendingUp, label: 'Audience Retention Optimized' },
+    ],
+    colSpan: 'md:col-span-2',
+  },
+  {
+    title: 'Graphic Design',
+    description: 'Strong visuals build strong brands. I design clean, modern, attention-grabbing graphics that make your content and brand look professional and memorable.',
+    tags: [
+      { icon: Palette, label: 'Thumbnails That Get Clicks' },
+      { icon: Layers, label: 'Social Media Graphics' },
+      { icon: PackageCheck, label: 'Brand Visuals & Posters' },
+      { icon: Sparkles, label: 'Clean & Modern Style' },
     ],
     colSpan: 'md:col-span-2',
   },
   {
     title: 'Website Development',
-    description: 'Custom websites built to showcase your brand and convert visitors into fans.',
+    description: 'Custom websites built to showcase your brand, attract clients, and convert visitors into fans. Clean design, smooth experience, and professional look.',
     tags: [
-      { icon: MousePointerClick, label: 'Modern Design' },
-    ],
-    colSpan: 'md:col-span-2',
-  },
-  {
-    title: 'Content Repurposing Package',
-    description: 'One video, 10 pieces of content — cut into Shorts, Reels, quote cards, and teasers. Perfect for creators who want to stay visible everywhere.',
-    tags: [
-      { icon: Layers, label: 'Multi-Platform' },
-      { icon: PackageCheck, label: 'Batch Delivery' },
-      { icon: TrendingUp, label: 'Quick' },
+      { icon: Globe, label: 'Modern & Clean Design' },
+      { icon: MousePointerClick, label: 'Fast & Responsive' },
+      { icon: TrendingUp, label: 'Conversion Focused' },
+      { icon: PackageCheck, label: 'Professional Layout' },
     ],
     colSpan: 'md:col-span-3',
   },
