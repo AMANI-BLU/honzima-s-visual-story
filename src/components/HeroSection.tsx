@@ -44,13 +44,13 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Creative video editor</span>
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-6 text-foreground">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-4 lg:mb-6 text-foreground">
             <BlurText delay={0.3} className="block text-foreground justify-center lg:justify-start">Crafting Videos</BlurText>
             <BlurText delay={0.5} className="block text-foreground justify-center lg:justify-start">That Capture</BlurText>
             <BlurText delay={0.7} className="text-teal-500 justify-center lg:justify-start">Attention.</BlurText>
           </h1>
 
-          <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-10 font-light leading-relaxed">
+          <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-6 lg:mb-10 font-light leading-relaxed">
             Helping creators and brands stand out through high-impact creative edits.
           </BlurTextBlock>
 
@@ -92,7 +92,7 @@ const HeroSection = () => {
           transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
           className="relative hidden lg:block"
         >
-          <div className="relative aspect-[2/4] max-w-md mx-auto">
+          <div className="relative mx-auto lg:mx-0 lg:ml-auto">
             {/* Three concentric circle lines */}
             <div className="absolute inset-0 flex items-center justify-center">
               <motion.div
@@ -113,11 +113,11 @@ const HeroSection = () => {
             </div>
 
             {/* Main image - no box */}
-            <div className="relative">
+            <div className="relative overflow-hidden rounded-2xl">
               <img
                 src={heroImage}
                 alt="Honzima - Video Editor"
-                className="w-full h-full object-cover relative z-10"
+                className="w-full h-auto max-h-[70vh] object-contain relative z-10"
               />
             </div>
 
