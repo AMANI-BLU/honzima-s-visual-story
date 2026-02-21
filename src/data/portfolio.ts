@@ -18,6 +18,12 @@ export const portfolioVideos: PortfolioVideo[] = [
         category: 'ETCL Real Estate',
         description: 'Expertly blending scenes with smooth, dynamic motion effects that maintain energy and flow.'
     },
+    {
+        id: 'ZJ-Qb9IBgXA',
+        title: 'Short Form Content',
+        category: 'ETCL Real Estate',
+        description: 'Dynamic editing and color grading to showcase real estate properties with impact and clarity.'
+    },
 ];
 
-export const featuredVideos = portfolioVideos; // Showing both as featured since there are only two
+export const featuredVideos = portfolioVideos;
