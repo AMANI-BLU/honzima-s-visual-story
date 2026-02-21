@@ -46,9 +46,10 @@ const Portfolio = () => {
                     </Link>
 
                     <div className="max-w-3xl">
-                        <BlurText as="h1" className="text-5xl md:text-7xl font-display font-bold mb-6 text-foreground">
-                            Full Portfolio
-                        </BlurText>
+                        <h1 className="text-5xl md:text-7xl font-display font-bold mb-6 text-foreground">
+                            <BlurText delay={0.1}>My Recent Edits</BlurText>{' '}
+                            <BlurText delay={0.3} className="text-teal-500 italic">in Action</BlurText>
+                        </h1>
                         <BlurTextBlock delay={0.2} className="text-xl text-muted-foreground leading-relaxed">
                             Explore my latest video edits, transitions, and cinematic storytelling on YouTube Shorts.
                         </BlurTextBlock>
