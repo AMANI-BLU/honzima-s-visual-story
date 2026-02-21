@@ -3,32 +3,43 @@ import { motion } from "framer-motion";
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 
+import avatarEtcl from '@/assets/etcl-logo.jpg';
+import avatarChereka from '@/assets/chereka-logo.jpg';
+import avatarMy from '@/assets/my-logo.png';
+import avatarMaffys from '@/assets/maffys-logo.png';
+import avatarFis from '@/assets/fis-logo.jpg';
+
 interface Testimonial {
   text: string;
   name: string;
   role: string;
+  avatar?: string;
 }
 
 const testimonials: Testimonial[] = [
   {
     text: "Working with Honzima elevated our real estate videos to a whole new level. He understands real estate marketing, not just editing.",
-    name: "ETCL Real Estate PLC",
-    role: "Real Estate",
+    name: "ETCL Real Estate",
+    role: "PLC",
+    avatar: avatarEtcl,
   },
   {
     text: "Great work! The edit feels smooth and exactly matches my vision.",
     name: "Chereka Kids",
-    role: "Small Business",
+    role: "Small business",
+    avatar: avatarChereka,
   },
   {
     text: "Working with Honzima was a great experience. We will definitely be coming back for more edits.",
     name: "M Y",
     role: "Travel Agency",
+    avatar: avatarMy,
   },
   {
     text: "You really understood what I wanted — the video came out better than I expected.",
     name: "Maffis Clothing",
-    role: "Small Business",
+    role: "Small business",
+    avatar: avatarMaffys,
   },
   {
     text: "Yo this came out way better than I expected, thank you!",
@@ -39,6 +50,7 @@ const testimonials: Testimonial[] = [
     text: "The edit looks so clean, appreciate it!",
     name: "Flipper International School",
     role: "Education",
+    avatar: avatarFis,
   },
 ];
 
@@ -64,12 +76,13 @@ const TestimonialsColumn = ({
           repeat: Infinity,
           repeatType: 'loop',
           ease: 'linear',
+          repeatDelay: 0
         }}
         className="flex flex-col gap-6 pb-6"
       >
         {[...Array(2)].map((_, idx) => (
           <React.Fragment key={idx}>
-            {testimonials.map(({ text, name, role }, i) => (
+            {testimonials.map(({ text, name, role, avatar }, i) => (
               <motion.div
                 key={`${idx}-${i}`}
                 whileHover={{ scale: 1.02, y: -4 }}
@@ -80,9 +93,17 @@ const TestimonialsColumn = ({
                   "{text}"
                 </p>
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary/30">
-                    <span className="text-lg font-bold text-primary">{name.charAt(0)}</span>
-                  </div>
+                  {avatar ? (
+                    <img
+                      src={avatar}
+                      alt={name}
+                      className="w-12 h-12 rounded-full object-contain border-2 border-primary/30 bg-white p-1"
+                    />
+                  ) : (
+                    <div className="w-12 h-12 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary/30">
+                      <span className="text-lg font-bold text-primary">{name.charAt(0)}</span>
+                    </div>
+                  )}
                   <div>
                     <p className="font-display font-semibold text-foreground">
                       {name}
@@ -97,7 +118,7 @@ const TestimonialsColumn = ({
           </React.Fragment>
         ))}
       </motion.div>
-      
+
       <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-background to-transparent pointer-events-none z-10" />
       <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-background to-transparent pointer-events-none z-10" />
     </div>
@@ -112,7 +133,7 @@ const TestimonialV2 = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[150px]" />
-      
+
       <div className="container-custom relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -126,16 +147,16 @@ const TestimonialV2 = () => {
               <span className="text-primary">★</span> Testimonials
             </span>
           </BlurTextBlock>
-          
+
           <h2 className="text-4xl md:text-5xl font-display font-bold mt-6 mb-4">
             <BlurText delay={0.1}>What</BlurText>{' '}
             <BlurText delay={0.2} className="text-teal-500">Clients</BlurText>{' '}
             <BlurText delay={0.3}>Say</BlurText>
           </h2>
-          
+
           <BlurTextBlock delay={0.4}>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-              Discover how I've helped creators and businesses elevate their video content.
+              Hear directly from the businesses and creators I've collaborated with.
             </p>
           </BlurTextBlock>
         </motion.div>

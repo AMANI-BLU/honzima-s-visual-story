@@ -33,14 +33,13 @@ const Navigation = () => {
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled ? 'glass py-4' : 'py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'glass py-3' : 'py-4'
+          }`}
       >
         <div className="container-custom flex items-center justify-between px-6">
           {/* Logo */}
-          <motion.a 
-            href="#" 
+          <motion.a
+            href="#"
             className="font-display font-bold text-2xl"
             whileHover={{ scale: 1.05 }}
             transition={{ type: "spring", stiffness: 400, damping: 17 }}
@@ -119,7 +118,7 @@ const Navigation = () => {
               {link.label}
             </a>
           ))}
-          
+
           {/* Theme Toggle for Mobile */}
           {mounted && (
             <button
@@ -131,7 +130,7 @@ const Navigation = () => {
               <Moon className="h-5 w-5 rotate-90 scale-0 transition-transform dark:rotate-0 dark:scale-100 absolute" />
             </button>
           )}
-          
+
           <a
             href={TELEGRAM_URL}
             target="_blank"

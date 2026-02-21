@@ -5,42 +5,52 @@ import { Heart, MessageCircle, Share2, Bookmark } from 'lucide-react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 import heroImage from '@/assets/honzima-hero.png';
+import avatar1 from '@/assets/testimonial-1.jpg';
+import avatar2 from '@/assets/testimonial-2.jpg';
+import avatar3 from '@/assets/testimonial-3.jpg';
+import avatar4 from '@/assets/testimonial-4.jpg';
+import avatar5 from '@/assets/testimonial-5.jpg';
 
 const tiktokComments = [
   {
     id: 1,
     username: '@Jarzone',
     comment: "This edit got no mercy 👏",
-    likes: '2.1K',
+    likes: '84',
     time: '2d',
+    avatar: avatar5,
   },
   {
     id: 2,
     username: '@Natnael content creator',
     comment: "This edit is insanely clean 🔥",
-    likes: '1.8K',
+    likes: '62',
     time: '3d',
+    avatar: avatar2,
   },
   {
     id: 3,
     username: '@Ayat siraj',
     comment: "Loved your content HONZIMA",
-    likes: '1.4K',
+    likes: '45',
     time: '4d',
+    avatar: avatar3,
   },
   {
     id: 4,
     username: '@Rediet',
     comment: "Why are your videos so satisfying to watch 😄😘",
-    likes: '980',
+    likes: '91',
     time: '5d',
+    avatar: avatar4,
   },
   {
     id: 5,
     username: '@Huka Garse',
     comment: "This is clean Son 👏🔥",
-    likes: '1.2K',
+    likes: '73',
     time: '6d',
+    avatar: avatar1,
   },
 ];
 
@@ -55,7 +65,7 @@ const TikTokSection = () => {
         <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
       </div>
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
-      
+
       <div className="container-custom relative z-10">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left - TikTok mockup */}
@@ -66,7 +76,7 @@ const TikTokSection = () => {
           >
             <div className="relative max-w-[320px] mx-auto">
               <div className="absolute -inset-4 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-cyan-500/20 rounded-[3rem] blur-2xl" />
-              
+
               <div className="relative bg-foreground dark:bg-background rounded-[2.5rem] p-3 border border-border/50">
                 <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-gradient-to-b from-muted to-card">
                   <div className="absolute inset-0">
@@ -77,7 +87,7 @@ const TikTokSection = () => {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   </div>
-                  
+
                   <div className="absolute right-3 bottom-24 flex flex-col items-center gap-4">
                     <button className="flex flex-col items-center">
                       <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
@@ -104,18 +114,18 @@ const TikTokSection = () => {
                       <span className="text-[10px] mt-1 text-white">Share</span>
                     </button>
                   </div>
-                  
+
                   <div className="absolute left-3 bottom-4 right-16">
                     <p className="font-semibold text-sm text-white">@honzimaedits</p>
                     <p className="text-xs text-white/70 mt-1">Smooth transition tutorial ✨ #editing #videoeditor #fyp</p>
                   </div>
                 </div>
               </div>
-              
+
               <div className="absolute top-6 left-1/2 -translate-x-1/2 w-24 h-6 bg-foreground dark:bg-background rounded-full" />
             </div>
           </motion.div>
-          
+
           {/* Right - Comments */}
           <motion.div
             initial={{ opacity: 0, x: 50 }}
@@ -137,7 +147,7 @@ const TikTokSection = () => {
                 Real comments from my TikTok community. The love keeps me creating!
               </p>
             </BlurTextBlock>
-            
+
             <div className="space-y-4 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar">
               {tiktokComments.map((comment, index) => (
                 <motion.div
@@ -148,9 +158,13 @@ const TikTokSection = () => {
                   className="glass-card p-4"
                 >
                   <div className="flex items-start gap-3">
-                    <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
-                      <span className="text-sm font-bold text-primary">{comment.username.charAt(1).toUpperCase()}</span>
-                    </div>
+                    {comment.avatar ? (
+                      <img src={comment.avatar} alt={comment.username} className="w-10 h-10 rounded-full object-cover" />
+                    ) : (
+                      <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+                        <span className="text-sm font-bold text-primary">{comment.username.charAt(1).toUpperCase()}</span>
+                      </div>
+                    )}
                     <div className="flex-1 min-w-0">
                       <div className="flex items-center gap-2">
                         <span className="font-semibold text-sm">{comment.username}</span>

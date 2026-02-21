@@ -76,7 +76,7 @@ const Footer = () => {
         {/* Bottom */}
         <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-muted-foreground">
-            ©2026 <span className="text-foreground font-semibold">honzima</span> All rights reserved.
+            ©2026 honzima All rights reserved.
           </p>
           
           {/* Social Links */}
