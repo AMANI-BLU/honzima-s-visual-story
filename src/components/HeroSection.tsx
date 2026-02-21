@@ -26,12 +26,13 @@ const HeroSection = () => {
       {/* Noise Overlay */}
       <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
 
-      <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-6 md:px-12 lg:px-16 xl:px-20 max-w-screen-xl mx-auto">
+      <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-6 md:px-12 lg:px-16 max-w-screen-xl mx-auto">
         {/* Left Content */}
         <motion.div
           initial={{ opacity: 0, x: -50 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
+          className="flex flex-col items-center lg:items-start text-center lg:text-left"
         >
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -40,26 +41,26 @@ const HeroSection = () => {
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
           >
             <Sparkles className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-muted-foreground">Creative video editor</span>
+            <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Creative video editor</span>
           </motion.div>
 
-          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[0.95] mb-6 text-foreground">
-            <BlurText delay={0.3} className="block text-foreground">Crafting Videos</BlurText>
-            <BlurText delay={0.5} className="block text-foreground">That Capture</BlurText>
-            <BlurText delay={0.7} className="text-teal-500">Attention.</BlurText>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-6 text-foreground">
+            <BlurText delay={0.3} className="block text-foreground justify-center lg:justify-start">Crafting Videos</BlurText>
+            <BlurText delay={0.5} className="block text-foreground justify-center lg:justify-start">That Capture</BlurText>
+            <BlurText delay={0.7} className="text-teal-500 justify-center lg:justify-start">Attention.</BlurText>
           </h1>
 
-          <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-8 font-light">
-            Helping creators and brands stand out through creative edits.
+          <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-10 font-light leading-relaxed">
+            Helping creators and brands stand out through high-impact creative edits.
           </BlurTextBlock>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
             <motion.a
               href="#portfolio"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="group relative px-8 py-4 rounded-full overflow-hidden font-display font-semibold text-primary-foreground shadow-lg hover:shadow-xl text-center"
+              className="group relative px-10 py-4 rounded-full overflow-hidden font-display font-semibold text-primary-foreground shadow-lg hover:shadow-xl text-center"
               style={{ background: 'var(--gradient-primary)' }}
             >
               <span className="relative z-10 flex items-center justify-center gap-2">
@@ -76,7 +77,7 @@ const HeroSection = () => {
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
               transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              className="px-8 py-4 rounded-full border border-border/50 font-display font-semibold text-foreground hover:bg-secondary/50 transition-all duration-300 text-center"
+              className="px-10 py-4 rounded-full border border-border/50 font-display font-semibold text-foreground hover:bg-secondary/50 transition-all duration-300 text-center"
             >
               Get in Touch
             </motion.a>
