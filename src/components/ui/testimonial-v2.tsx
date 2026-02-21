@@ -4,6 +4,8 @@ import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 
 import avatarEtcl from '@/assets/etcl-logo.jpg';
+import avatarChereka from '@/assets/chereka-logo.jpg';
+import avatarMy from '@/assets/my-logo.png';
 
 interface Testimonial {
   text: string;
@@ -19,11 +21,23 @@ const testimonials: Testimonial[] = [
     role: "PLC",
     avatar: avatarEtcl,
   },
+  {
+    text: "Great work! The edit feels smooth and exactly matches my vision.",
+    name: "Chereka Kids",
+    role: "Small business",
+    avatar: avatarChereka,
+  },
+  {
+    text: "Working with Honzima was a great experience. We will definitely be coming back for more edits.",
+    name: "M Y",
+    role: "Travel Agency",
+    avatar: avatarMy,
+  },
 ];
 
-const firstColumn = testimonials;
-const secondColumn: Testimonial[] = [];
-const thirdColumn: Testimonial[] = [];
+const firstColumn = testimonials.filter((_, i) => i % 3 === 0);
+const secondColumn = testimonials.filter((_, i) => i % 3 === 1);
+const thirdColumn = testimonials.filter((_, i) => i % 3 === 2);
 
 const TestimonialsColumn = ({
   className,
