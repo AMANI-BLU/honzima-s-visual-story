@@ -60,6 +60,10 @@ const firstColumn = testimonials.filter((_, i) => i % 3 === 0);
 const secondColumn = testimonials.filter((_, i) => i % 3 === 1);
 const thirdColumn = testimonials.filter((_, i) => i % 3 === 2);
 
+// New split for tablet (2 columns)
+const tabletFirst = testimonials.filter((_, i) => i % 2 === 0);
+const tabletSecond = testimonials.filter((_, i) => i % 2 === 1);
+
 const TestimonialsColumn = ({
   className,
   testimonials,
@@ -91,7 +95,7 @@ const TestimonialsColumn = ({
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 className="p-6 rounded-2xl bg-card border border-border/50 shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer"
               >
-                <p className="text-foreground/90 leading-relaxed mb-4">
+                <p className="text-foreground/90 leading-relaxed mb-4 whitespace-normal">
                   "{text}"
                 </p>
                 <div className="flex items-center gap-3">
@@ -164,9 +168,17 @@ const TestimonialV2 = () => {
         </motion.div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-center">
-          {firstColumn.length > 0 && <TestimonialsColumn testimonials={firstColumn} duration={20} />}
-          {secondColumn.length > 0 && <TestimonialsColumn testimonials={secondColumn} duration={25} className="hidden md:block" />}
-          {thirdColumn.length > 0 && <TestimonialsColumn testimonials={thirdColumn} duration={22} className="hidden lg:block" />}
+          {/* Mobile Only: One column with all testimonials */}
+          <TestimonialsColumn testimonials={testimonials} duration={30} className="md:hidden" />
+
+          {/* Tablet Only (md to lg): Two columns with all testimonials */}
+          <TestimonialsColumn testimonials={tabletFirst} duration={25} className="hidden md:block lg:hidden" />
+          <TestimonialsColumn testimonials={tabletSecond} duration={20} className="hidden md:block lg:hidden" />
+
+          {/* Desktop Only (lg and up): Three columns with all testimonials */}
+          <TestimonialsColumn testimonials={firstColumn} duration={20} className="hidden lg:block" />
+          <TestimonialsColumn testimonials={secondColumn} duration={25} className="hidden lg:block" />
+          <TestimonialsColumn testimonials={thirdColumn} duration={22} className="hidden lg:block" />
         </div>
       </div>
     </section>
