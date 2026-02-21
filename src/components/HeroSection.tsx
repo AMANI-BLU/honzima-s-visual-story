@@ -44,22 +44,14 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Creative video editor</span>
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold lg:font-extrabold leading-[1.1] sm:leading-[1.05] lg:tracking-[-0.04em] mb-8 text-foreground drop-shadow-sm">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-6 text-foreground">
             <BlurText delay={0.3} className="block text-foreground justify-center lg:justify-start">Crafting Videos</BlurText>
             <BlurText delay={0.5} className="block text-foreground justify-center lg:justify-start">That Capture</BlurText>
-            <div className="relative inline-block mt-2 lg:mt-0">
-              <BlurText delay={0.7} className="text-gradient-hero justify-center lg:justify-start py-1">Attention.</BlurText>
-              <motion.div
-                initial={{ scaleX: 0, opacity: 0 }}
-                animate={{ scaleX: 1, opacity: 1 }}
-                transition={{ delay: 1.5, duration: 1, ease: "circOut" }}
-                className="absolute -bottom-1 left-0 right-0 h-1.5 lg:h-2 bg-gradient-to-r from-primary via-teal-500 to-accent rounded-full origin-left hidden sm:block"
-              />
-            </div>
+            <BlurText delay={0.7} className="text-teal-500 justify-center lg:justify-start">Attention.</BlurText>
           </h1>
 
-          <BlurTextBlock delay={0.9} className="text-lg md:text-xl text-muted-foreground max-w-md mb-12 font-light leading-relaxed">
-            Helping creators and brands stand out through high-impact creative edits that convert viewers into fans.
+          <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-10 font-light leading-relaxed">
+            Helping creators and brands stand out through high-impact creative edits.
           </BlurTextBlock>
 
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
