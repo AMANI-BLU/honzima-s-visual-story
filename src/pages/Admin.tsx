@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Trash2, Save, RotateCcw, Copy, ExternalLink, LayoutGrid, List, Check, AlertCircle } from 'lucide-react';
+import { Plus, Trash2, Save, RotateCcw, Copy, ExternalLink, LayoutGrid, List, Check, AlertCircle, LogOut, ArrowLeft } from 'lucide-react';
 import { getVideos, saveVideos, resetVideos, PortfolioVideo } from '@/data/portfolio';
 import { toast } from 'sonner';
-import Navigation from '@/components/Navigation';
+import { useNavigate, Link } from 'react-router-dom';
 
 const Admin = () => {
+    const navigate = useNavigate();
     const [videos, setVideos] = useState<PortfolioVideo[]>([]);
     const [newVideo, setNewVideo] = useState<Partial<PortfolioVideo>>({
         id: '',
@@ -15,8 +16,21 @@ const Admin = () => {
     });
 
     useEffect(() => {
+        // Auth Check
+        const session = sessionStorage.getItem('honzima_admin_session');
+        if (!session) {
+            navigate('/login');
+            return;
+        }
+
         setVideos(getVideos());
-    }, []);
+    }, [navigate]);
+
+    const handleLogout = () => {
+        sessionStorage.removeItem('honzima_admin_session');
+        toast.info("Logged out successfully");
+        navigate('/login');
+    };
 
     const handleAddVideo = (e: React.FormEvent) => {
         e.preventDefault();
@@ -56,9 +70,21 @@ const Admin = () => {
 
     return (
         <div className="min-h-screen bg-background">
-            <Navigation />
+            <main className="container-custom pt-20 pb-20 px-6">
+                <div className="mb-10 flex items-center justify-between">
+                    <Link to="/" className="inline-flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors group">
+                        <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" />
+                        Website Home
+                    </Link>
+                    <button
+                        onClick={handleLogout}
+                        className="flex items-center gap-2 text-muted-foreground hover:text-red-500 transition-colors text-sm font-medium"
+                    >
+                        <LogOut className="w-4 h-4" />
+                        Log Out
+                    </button>
+                </div>
 
-            <main className="container-custom pt-32 pb-20 px-6">
                 <header className="mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
                     <div>
                         <h1 className="text-4xl md:text-5xl font-display font-bold text-foreground mb-4">
