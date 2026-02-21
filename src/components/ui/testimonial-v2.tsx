@@ -8,6 +8,7 @@ import avatarChereka from '@/assets/chereka-logo.jpg';
 import avatarMy from '@/assets/my-logo.png';
 import avatarMaffys from '@/assets/maffy.jpg';
 import avatarAlkaba from '@/assets/alkaba.jpg';
+import avatarFlipper from '@/assets/flipper.png';
 
 interface Testimonial {
   text: string;
@@ -46,6 +47,12 @@ const testimonials: Testimonial[] = [
     name: "Alkaba",
     role: "Travel Agency",
     avatar: avatarAlkaba,
+  },
+  {
+    text: "The edit looks so clean, appreciate it!",
+    name: "Flipper International School",
+    role: "Education",
+    avatar: avatarFlipper,
   },
 ];
 
