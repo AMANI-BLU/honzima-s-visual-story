@@ -93,7 +93,7 @@ const TikTokSection = () => {
 
               <div className="relative bg-foreground dark:bg-background rounded-[2.5rem] p-3 border border-border/50">
                 <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-black">
-                  <TikTokEmbed videoId="7595307565320244536" />
+                  <TikTokEmbed videoId="7605637956149251349" />
                 </div>
               </div>
 
