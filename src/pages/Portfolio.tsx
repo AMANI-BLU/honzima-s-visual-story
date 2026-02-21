@@ -51,7 +51,7 @@ const Portfolio = () => {
                             <BlurText delay={0.3} className="text-teal-500 italic">in Action</BlurText>
                         </h1>
                         <BlurTextBlock delay={0.2} className="text-xl text-muted-foreground leading-relaxed">
-                            Explore my latest video edits, transitions, and cinematic storytelling on YouTube Shorts.
+                            Explore my latest video edits, transitions, and cinematic storytelling.
                         </BlurTextBlock>
                     </div>
                 </div>
