@@ -2,30 +2,24 @@ import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
-import { Upload, MessageSquare, Rocket, Send } from 'lucide-react';
+import { Upload, MessageSquare, Rocket, Send, Share2 } from 'lucide-react';
 import { Tiles } from '@/components/ui/tiles';
 
 import aeIcon from '@/assets/after-effects.png';
 import prIcon from '@/assets/premiere-pro.png';
 import dvIcon from '@/assets/davinci-resolve.png';
 import tgIcon from '@/assets/telegram.png';
-import wtIcon from '@/assets/wetransfer.png';
 
 const steps = [
   {
     number: '01',
     title: 'Send Your Files',
-    description: 'Upload your raw videos via WeTransfer, Google Drive, Telegram — whatever is easiest for you.',
+    description: 'Upload your raw videos via Cloud Storage, Google Drive, Telegram — whatever is easiest for you.',
     illustration: (
       <div className="flex items-center justify-center gap-4 py-6">
-        <motion.img
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.1 }}
-          src={wtIcon}
-          alt="WeTransfer"
-          className="w-10 h-10 object-contain shadow-sm"
-        />
+        <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shadow-sm border border-primary/20">
+          <Upload className="w-6 h-6 text-primary" />
+        </div>
         <div className="w-px h-8 bg-primary/20 mx-1" />
         <div className="w-10 h-10 rounded-full bg-primary/20 flex items-center justify-center shadow-sm">
           <svg className="w-6 h-6 text-primary" viewBox="0 0 87.3 78" xmlns="http://www.w3.org/2000/svg">
