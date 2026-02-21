@@ -14,7 +14,7 @@ const steps = [
   {
     number: '01',
     title: 'Send Your Files',
-    description: 'Upload your raw videos via Cloud Storage, Google Drive, Telegram — whatever is easiest for you.',
+    description: 'Upload your raw videos via Google Drive, Telegram — whatever is easiest for you.',
     illustration: (
       <div className="flex items-center justify-center gap-4 py-6">
         <div className="w-12 h-12 rounded-2xl bg-primary/10 flex items-center justify-center shadow-sm border border-primary/20">
@@ -60,17 +60,17 @@ const steps = [
         <motion.img
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.3 }}
-          src={prIcon}
-          alt="Premiere Pro"
+          transition={{ delay: 0.4 }}
+          src={dvIcon}
+          alt="DaVinci Resolve"
           className="w-12 h-12 rounded-xl shadow-lg border border-border/50"
         />
         <motion.img
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
-          transition={{ delay: 0.4 }}
-          src={dvIcon}
-          alt="DaVinci Resolve"
+          transition={{ delay: 0.3 }}
+          src={prIcon}
+          alt="Premiere Pro"
           className="w-12 h-12 rounded-xl shadow-lg border border-border/50"
         />
       </div>
