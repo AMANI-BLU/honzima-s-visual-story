@@ -10,9 +10,6 @@ const Footer = () => {
     { href: '/#services', label: 'Services' },
     { href: '/portfolio', label: 'Portfolio' },
     { href: '/#process', label: 'Process' },
-    { href: '/#community', label: 'Community' },
-    { href: '/#testimonials', label: 'Review' },
-    { href: '/#pricing', label: 'Pricing' },
   ];
 
   const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
