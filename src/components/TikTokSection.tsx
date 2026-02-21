@@ -54,6 +54,20 @@ const tiktokComments = [
   },
 ];
 
+const TikTokEmbed = ({ videoId }: { videoId: string }) => {
+  return (
+    <div className="relative w-full h-full bg-black">
+      <iframe
+        src={`https://www.tiktok.com/player/v1/${videoId}?music_info=1&description=1&autoplay=1&loop=1&controls=0&progress_bar=0`}
+        className="absolute inset-0 w-full h-full"
+        allow="accelerometer; autoplay; clip-board-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
+      <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/80 to-transparent pointer-events-none" />
+    </div>
+  );
+};
+
 const TikTokSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
@@ -78,47 +92,8 @@ const TikTokSection = () => {
               <div className="absolute -inset-4 bg-gradient-to-br from-pink-500/20 via-purple-500/20 to-cyan-500/20 rounded-[3rem] blur-2xl" />
 
               <div className="relative bg-foreground dark:bg-background rounded-[2.5rem] p-3 border border-border/50">
-                <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-gradient-to-b from-muted to-card">
-                  <div className="absolute inset-0">
-                    <img
-                      src={heroImage}
-                      alt="Honzima"
-                      className="w-full h-full object-cover object-top"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-                  </div>
-
-                  <div className="absolute right-3 bottom-24 flex flex-col items-center gap-4">
-                    <button className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
-                        <Heart className="w-5 h-5 text-primary fill-primary" />
-                      </div>
-                      <span className="text-[10px] mt-1 text-white">256K</span>
-                    </button>
-                    <button className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
-                        <MessageCircle className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] mt-1 text-white">1.2K</span>
-                    </button>
-                    <button className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
-                        <Bookmark className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] mt-1 text-white">45K</span>
-                    </button>
-                    <button className="flex flex-col items-center">
-                      <div className="w-10 h-10 rounded-full bg-secondary/80 flex items-center justify-center">
-                        <Share2 className="w-5 h-5" />
-                      </div>
-                      <span className="text-[10px] mt-1 text-white">Share</span>
-                    </button>
-                  </div>
-
-                  <div className="absolute left-3 bottom-4 right-16">
-                    <p className="font-semibold text-sm text-white">@honzimaedits</p>
-                    <p className="text-xs text-white/70 mt-1">Smooth transition tutorial ✨ #editing #videoeditor #fyp</p>
-                  </div>
+                <div className="relative aspect-[9/16] rounded-[2rem] overflow-hidden bg-black">
+                  <TikTokEmbed videoId="7591553435690978571" />
                 </div>
               </div>
 

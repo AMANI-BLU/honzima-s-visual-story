@@ -10,14 +10,15 @@ import { Link } from 'react-router-dom';
 
 const YouTubeEmbed = ({ videoId }: { videoId: string }) => {
     return (
-        <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden bg-muted/20">
+        <div className="relative w-full aspect-[9/16] rounded-xl overflow-hidden bg-muted/20 border border-white/5">
             <iframe
-                src={`https://www.youtube.com/embed/${videoId}?loop=1&playlist=${videoId}&modestbranding=1&rel=0`}
+                src={`https://www.youtube.com/embed/${videoId}?loop=1&playlist=${videoId}&modestbranding=1&rel=0&iv_load_policy=3&controls=0&showinfo=0`}
                 title="YouTube Shorts"
                 className="absolute inset-0 w-full h-full"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                 allowFullScreen
             ></iframe>
+            <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-xl" />
         </div>
     );
 };
@@ -68,13 +69,13 @@ const Portfolio = () => {
                                 transition={{ delay: (index % 2) * 0.1, duration: 0.5 }}
                                 className="group"
                             >
-                                <div className="relative rounded-2xl overflow-hidden border border-border/50 bg-card p-4 shadow-sm hover:shadow-2xl hover:border-primary/30 transition-all duration-500">
+                                <div className="relative rounded-2xl overflow-hidden border border-border/40 bg-card/40 backdrop-blur-sm p-5 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-all duration-500 transform-gpu group-hover:-translate-y-2">
                                     <YouTubeEmbed videoId={video.id} />
-                                    <div className="mt-6 px-2 pb-2">
-                                        <div className="flex items-center justify-between mb-2">
-                                            <span className="text-xs font-semibold text-primary uppercase tracking-widest">{video.category}</span>
+                                    <div className="mt-6 px-1 pb-1">
+                                        <div className="flex items-center justify-between mb-3">
+                                            <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">{video.category}</span>
                                         </div>
-                                        <h3 className="font-display font-bold text-2xl text-foreground group-hover:text-primary transition-colors">{video.title}</h3>
+                                        <h3 className="font-display font-bold text-3xl text-foreground group-hover:text-primary transition-colors">{video.title}</h3>
                                     </div>
                                 </div>
                             </motion.div>

@@ -10,14 +10,15 @@ import { Link } from 'react-router-dom';
 
 const YouTubeEmbed = ({ videoId, className = '' }: { videoId: string; className?: string }) => {
   return (
-    <div className={`relative w-full aspect-[9/16] rounded-xl overflow-hidden bg-muted/20 ${className}`}>
+    <div className={`relative w-full aspect-[9/16] rounded-xl overflow-hidden bg-muted/20 border border-white/5 ${className}`}>
       <iframe
-        src={`https://www.youtube.com/embed/${videoId}?loop=1&playlist=${videoId}&modestbranding=1&rel=0`}
+        src={`https://www.youtube.com/embed/${videoId}?loop=1&playlist=${videoId}&modestbranding=1&rel=0&iv_load_policy=3&controls=0&showinfo=0`}
         title="YouTube Shorts"
         className="absolute inset-0 w-full h-full"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen
       ></iframe>
+      <div className="absolute inset-0 pointer-events-none ring-1 ring-inset ring-white/10 rounded-xl" />
     </div>
   );
 };
@@ -57,12 +58,13 @@ const PortfolioSection = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * index, ease: [0.25, 0.46, 0.45, 0.94] }}
+              className="group"
             >
-              <div className="rounded-2xl overflow-hidden border border-border/50 bg-card p-3 shadow-sm hover:shadow-xl transition-all duration-300">
+              <div className="rounded-2xl overflow-hidden border border-border/40 bg-card/40 backdrop-blur-sm p-4 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-all duration-500 transform-gpu group-hover:-translate-y-2">
                 <YouTubeEmbed videoId={video.id} />
-                <div className="mt-4 px-2 pb-2">
-                  <span className="text-xs font-medium text-primary uppercase tracking-wider">{video.category}</span>
-                  <h3 className="font-display font-bold text-lg text-foreground mt-1">{video.title}</h3>
+                <div className="mt-5 px-1 pb-1">
+                  <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">{video.category}</span>
+                  <h3 className="font-display font-bold text-xl text-foreground mt-2 group-hover:text-primary transition-colors">{video.title}</h3>
                 </div>
               </div>
             </motion.div>
