@@ -8,27 +8,16 @@ import { ChevronDown } from 'lucide-react';
 import { featuredVideos } from '@/data/portfolio';
 import { Link } from 'react-router-dom';
 
-const TikTokEmbed = ({ videoId, className = '' }: { videoId: string; className?: string }) => {
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    // Load TikTok embed script
-    const script = document.createElement('script');
-    script.src = 'https://www.tiktok.com/embed.js';
-    script.async = true;
-    document.body.appendChild(script);
-  }, [videoId]);
-
+const YouTubeEmbed = ({ videoId, className = '' }: { videoId: string; className?: string }) => {
   return (
-    <div ref={containerRef} className={`flex justify-center ${className}`}>
-      <blockquote
-        className="tiktok-embed"
-        cite={`https://www.tiktok.com/@honzimaedits/video/${videoId}`}
-        data-video-id={videoId}
-        style={{ maxWidth: '100%', minWidth: '325px' }}
-      >
-        <section />
-      </blockquote>
+    <div className={`relative w-full aspect-[9/16] rounded-xl overflow-hidden bg-muted/20 ${className}`}>
+      <iframe
+        src={`https://www.youtube.com/embed/${videoId}?loop=1&playlist=${videoId}&modestbranding=1&rel=0`}
+        title="YouTube Shorts"
+        className="absolute inset-0 w-full h-full"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+      ></iframe>
     </div>
   );
 };
@@ -61,17 +50,20 @@ const PortfolioSection = () => {
           </BlurTextBlock>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
           {featuredVideos.map((video, index) => (
             <motion.div
               key={video.id}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: 0.1 * index, ease: [0.25, 0.46, 0.45, 0.94] }}
-              className={index === 0 ? 'md:col-span-2 lg:col-span-2' : ''}
             >
-              <div className="rounded-xl overflow-hidden border border-border/50 bg-card p-2">
-                <TikTokEmbed videoId={video.id} />
+              <div className="rounded-2xl overflow-hidden border border-border/50 bg-card p-3 shadow-sm hover:shadow-xl transition-all duration-300">
+                <YouTubeEmbed videoId={video.id} />
+                <div className="mt-4 px-2 pb-2">
+                  <span className="text-xs font-medium text-primary uppercase tracking-wider">{video.category}</span>
+                  <h3 className="font-display font-bold text-lg text-foreground mt-1">{video.title}</h3>
+                </div>
               </div>
             </motion.div>
           ))}
