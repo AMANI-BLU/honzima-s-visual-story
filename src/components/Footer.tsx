@@ -58,7 +58,7 @@ const Footer = () => {
           {/* Quick Links */}
           <div>
             <h4 className="font-display font-semibold mb-4">Quick Links</h4>
-            <ul className="grid grid-cols-2 gap-x-4 gap-y-3">
+            <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.href}>
                   {link.href.startsWith('/#') ? (
