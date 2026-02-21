@@ -44,7 +44,7 @@ const HeroSection = () => {
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Creative video editor</span>
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-6 text-foreground">
+          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-6 text-foreground">
             <BlurText delay={0.3} className="block text-foreground justify-center lg:justify-start">Crafting Videos</BlurText>
             <BlurText delay={0.5} className="block text-foreground justify-center lg:justify-start">That Capture</BlurText>
             <BlurText delay={0.7} className="text-teal-500 justify-center lg:justify-start">Attention.</BlurText>
