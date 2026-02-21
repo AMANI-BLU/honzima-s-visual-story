@@ -58,7 +58,7 @@ const TikTokEmbed = ({ videoId }: { videoId: string }) => {
   return (
     <div className="relative w-full h-full bg-black">
       <iframe
-        src={`https://www.tiktok.com/player/v1/${videoId}?music_info=1&description=1&autoplay=1&loop=1&controls=0&progress_bar=0`}
+        src={`https://www.tiktok.com/player/v1/${videoId}?music_info=1&description=1&autoplay=1&loop=0&controls=0&progress_bar=0`}
         className="absolute inset-0 w-full h-full"
         allow="accelerometer; autoplay; clip-board-write; encrypted-media; gyroscope; picture-in-picture"
         allowFullScreen

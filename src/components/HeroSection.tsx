@@ -26,35 +26,35 @@ const HeroSection = () => {
       {/* Noise Overlay */}
       <div className="absolute inset-0 bg-noise opacity-[0.02] mix-blend-overlay pointer-events-none" />
 
-      <div className="container-custom relative z-10 grid lg:grid-cols-2 gap-12 items-center px-6 md:px-12 lg:px-16 max-w-screen-xl mx-auto">
-        {/* Left Content */}
-        <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="flex flex-col items-center lg:items-start text-center lg:text-left"
-        >
+      <div className="container-custom relative z-10 flex flex-col items-center justify-center text-center">
+        <div className="max-w-4xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.2 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6"
+            transition={{ duration: 0.5 }}
+            className="flex items-center gap-2 mb-6 justify-center"
           >
-            <Sparkles className="w-4 h-4 text-primary" />
+            <div className="h-px w-8 bg-primary/60" />
             <span className="text-sm font-medium text-muted-foreground uppercase tracking-wider">Creative video editor</span>
+            <div className="h-px w-8 bg-primary/60" />
           </motion.div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-4 lg:mb-6 text-foreground">
-            <BlurText delay={0.3} className="block text-foreground justify-center lg:justify-start">Crafting Videos</BlurText>
-            <BlurText delay={0.5} className="block text-foreground justify-center lg:justify-start">That Capture</BlurText>
-            <BlurText delay={0.7} className="text-teal-500 justify-center lg:justify-start">Attention.</BlurText>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-display font-bold leading-[1.1] sm:leading-[1.05] mb-6 text-foreground">
+            <BlurText delay={0.3} className="block text-foreground justify-center">Crafting Videos</BlurText>
+            <BlurText delay={0.5} className="block text-foreground justify-center">That Capture</BlurText>
+            <BlurText delay={0.7} className="text-teal-500 justify-center">Attention.</BlurText>
           </h1>
 
-          <BlurTextBlock delay={0.7} className="text-lg md:text-xl text-muted-foreground max-w-md mb-6 lg:mb-10 font-light leading-relaxed">
+          <BlurTextBlock delay={0.7} className="text-lg md:text-2xl text-muted-foreground max-w-2xl mx-auto mb-10 font-light leading-relaxed">
             Helping creators and brands stand out through high-impact creative edits.
           </BlurTextBlock>
 
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.9 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
+          >
             <motion.a
               href="#portfolio"
               whileHover={{ scale: 1.05, y: -2 }}
@@ -81,59 +81,9 @@ const HeroSection = () => {
             >
               Get in Touch
             </motion.a>
-          </div>
+          </motion.div>
 
-        </motion.div>
-
-        {/* Right Image */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1, delay: 0.2, ease: [0.25, 0.46, 0.45, 0.94] }}
-          className="relative hidden lg:block"
-        >
-          <div className="relative mx-auto lg:mx-0 lg:ml-auto">
-            {/* Three concentric circle lines */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[110%] h-[110%] rounded-full border-2 border-primary/30"
-              />
-              <motion.div
-                animate={{ rotate: -360 }}
-                transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[125%] h-[125%] rounded-full border border-primary/20"
-              />
-              <motion.div
-                animate={{ rotate: 360 }}
-                transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-                className="absolute w-[140%] h-[140%] rounded-full border border-accent/20"
-              />
-            </div>
-
-            {/* Main image - no box */}
-            <div className="relative overflow-hidden rounded-2xl">
-              <img
-                src={heroImage}
-                alt="Honzima - Video Editor"
-                className="w-full h-auto max-h-[85vh] object-contain relative z-10"
-              />
-            </div>
-
-            {/* Floating badge */}
-            <motion.div
-              animate={{ y: [0, -10, 0] }}
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -right-4 top-1/4 glass-card px-4 py-3 z-20"
-            >
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-green-500 animate-pulse" />
-                <span className="text-sm font-medium">Available for Work</span>
-              </div>
-            </motion.div>
-          </div>
-        </motion.div>
+        </div>
       </div>
 
       {/* Scroll indicator */}
@@ -157,3 +107,4 @@ const HeroSection = () => {
 };
 
 export default HeroSection;
+
