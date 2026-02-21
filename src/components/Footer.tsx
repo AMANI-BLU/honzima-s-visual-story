@@ -33,7 +33,7 @@ const Footer = () => {
   );
 
   const socials = [
-    { icon: () => <Instagram className="w-4 h-4" />, href: 'https://instagram.com/honzimaedits', label: 'Instagram' },
+    { icon: () => <Instagram className="w-4 h-4" />, href: 'https://www.instagram.com/honzima_/?hl=en', label: 'Instagram' },
     { icon: TikTokIcon, href: 'https://tiktok.com/@honzimaedits', label: 'TikTok' },
   ];
 
