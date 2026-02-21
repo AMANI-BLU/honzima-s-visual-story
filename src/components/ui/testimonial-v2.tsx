@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 
-import avatarEtcl from '@/assets/testimonial-etcl.jpg';
+import avatarEtcl from '@/assets/etcl-logo.jpg';
 
 interface Testimonial {
   text: string;
