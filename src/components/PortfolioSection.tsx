@@ -5,7 +5,7 @@ import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 import { ChevronDown } from 'lucide-react';
 
-import { featuredVideos } from '@/data/portfolio';
+import { getVideos } from '@/data/portfolio';
 import { Link } from 'react-router-dom';
 
 const YouTubeEmbed = ({ videoId, className = '' }: { videoId: string; className?: string }) => {
@@ -26,6 +26,11 @@ const YouTubeEmbed = ({ videoId, className = '' }: { videoId: string; className?
 const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [videos, setVideos] = useState([]);
+
+  useEffect(() => {
+    setVideos(getVideos());
+  }, []);
 
   return (
     <section id="portfolio" ref={ref} className="section-padding relative overflow-hidden">
@@ -52,7 +57,7 @@ const PortfolioSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {featuredVideos.map((video, index) => (
+          {videos.map((video, index) => (
             <motion.div
               key={video.id}
               initial={{ opacity: 0, y: 30 }}

@@ -1,8 +1,8 @@
 import { motion } from 'framer-motion';
-import { useRef, useEffect } from 'react';
+import { useRef, useEffect, useState } from 'react';
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
-import { portfolioVideos } from '@/data/portfolio'; // Changed from tiktokVideos to portfolioVideos
+import { getVideos, PortfolioVideo } from '@/data/portfolio';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 import { ArrowLeft } from 'lucide-react';
@@ -24,7 +24,10 @@ const YouTubeEmbed = ({ videoId }: { videoId: string }) => {
 };
 
 const Portfolio = () => {
+    const [videos, setVideos] = useState<PortfolioVideo[]>([]);
+
     useEffect(() => {
+        setVideos(getVideos());
         window.scrollTo(0, 0);
     }, []);
 
@@ -61,9 +64,9 @@ const Portfolio = () => {
             <section className="pb-32 relative">
                 <div className="container-custom px-6">
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-                        {portfolioVideos.map((video, index) => (
+                        {videos.map((video, index) => (
                             <motion.div
-                                key={video.id}
+                                key={video.id + index}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

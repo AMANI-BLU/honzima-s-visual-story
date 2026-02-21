@@ -5,6 +5,8 @@ export interface PortfolioVideo {
     description?: string;
 }
 
+const STORAGE_KEY = 'honzima_portfolio_videos';
+
 export const portfolioVideos: PortfolioVideo[] = [
     {
         id: 'fXap3dvQmVM',
@@ -26,4 +28,18 @@ export const portfolioVideos: PortfolioVideo[] = [
     },
 ];
 
-export const featuredVideos = portfolioVideos;
+export const getVideos = (): PortfolioVideo[] => {
+    if (typeof window === 'undefined') return portfolioVideos;
+    const stored = localStorage.getItem(STORAGE_KEY);
+    return stored ? JSON.parse(stored) : portfolioVideos;
+};
+
+export const saveVideos = (videos: PortfolioVideo[]) => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(videos));
+};
+
+export const resetVideos = () => {
+    localStorage.removeItem(STORAGE_KEY);
+};
+
+export const featuredVideos = getVideos();
