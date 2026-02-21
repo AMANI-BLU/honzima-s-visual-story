@@ -35,7 +35,7 @@ const Portfolio = () => {
             {/* Hero Section for Portfolio */}
             <section className="relative pt-32 pb-20 overflow-hidden">
                 <div className="absolute inset-0 overflow-hidden">
-                    <Tiles rows={50} cols={30} tileSize="md" className="opacity-40" />
+                    <Tiles rows={30} cols={20} tileSize="lg" className="opacity-40" />
                 </div>
                 <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/60 to-background pointer-events-none" />
 
@@ -69,7 +69,7 @@ const Portfolio = () => {
                                 transition={{ delay: (index % 2) * 0.1, duration: 0.5 }}
                                 className="group"
                             >
-                                <div className="relative rounded-2xl overflow-hidden border border-border/40 bg-card/40 backdrop-blur-sm p-5 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-all duration-500 transform-gpu group-hover:-translate-y-2">
+                                <div className="relative rounded-2xl overflow-hidden border border-border/40 bg-card/40 backdrop-blur-sm p-5 shadow-xl hover:shadow-2xl hover:border-primary/40 transition-colors duration-500 transform-gpu group-hover:-translate-y-2">
                                     <YouTubeEmbed videoId={video.id} />
                                     <div className="mt-6 px-1 pb-1">
                                         <div className="flex items-center justify-between mb-3">
