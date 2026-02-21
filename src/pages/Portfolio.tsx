@@ -77,6 +77,9 @@ const Portfolio = () => {
                                             <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">{video.category}</span>
                                         </div>
                                         <h3 className="font-display font-bold text-3xl text-foreground group-hover:text-primary transition-colors">{video.title}</h3>
+                                        {video.description && (
+                                            <p className="text-muted-foreground mt-3 text-lg leading-relaxed">{video.description}</p>
+                                        )}
                                     </div>
                                 </div>
                             </motion.div>

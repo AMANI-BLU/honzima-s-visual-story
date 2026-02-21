@@ -65,6 +65,9 @@ const PortfolioSection = () => {
                 <div className="mt-5 px-1 pb-1">
                   <span className="text-[10px] font-bold text-primary uppercase tracking-[0.2em]">{video.category}</span>
                   <h3 className="font-display font-bold text-xl text-foreground mt-2 group-hover:text-primary transition-colors">{video.title}</h3>
+                  {video.description && (
+                    <p className="text-sm text-muted-foreground mt-2 line-clamp-2">{video.description}</p>
+                  )}
                 </div>
               </div>
             </motion.div>
