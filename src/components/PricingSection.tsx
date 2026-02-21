@@ -77,7 +77,7 @@ const PricingSection = () => {
         <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
       </div>
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
-      
+
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
           <BlurTextBlock delay={0}>
@@ -104,11 +104,10 @@ const PricingSection = () => {
               animate={isInView ? { opacity: 1, y: 0 } : {}}
               transition={{ delay: index * 0.15 }}
               whileHover={{ y: -4 }}
-              className={`rounded-2xl border bg-card p-6 md:p-8 flex flex-col ${
-                plan.highlighted
-                  ? 'border-primary/50 shadow-xl shadow-primary/10 relative'
-                  : 'border-border/50'
-              }`}
+              className={`rounded-2xl border border-primary/50 bg-card p-6 md:p-8 flex flex-col relative transition-all duration-300 ${plan.highlighted
+                  ? 'shadow-xl shadow-primary/10'
+                  : 'hover:shadow-lg hover:shadow-primary/5'
+                }`}
             >
               {plan.highlighted && (
                 <div className="absolute top-0 left-0 right-0 h-1 rounded-t-2xl bg-gradient-to-r from-primary via-primary/80 to-primary" />
@@ -137,11 +136,10 @@ const PricingSection = () => {
                 href={TELEGRAM_URL}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`mt-8 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-sm transition-all ${
-                  plan.highlighted
+                className={`mt-8 inline-flex items-center justify-center gap-2 px-6 py-3 rounded-full font-display font-semibold text-sm transition-all ${plan.highlighted
                     ? 'text-primary-foreground shadow-lg'
                     : 'border border-border/50 text-foreground hover:bg-secondary/50'
-                }`}
+                  }`}
                 style={plan.highlighted ? { background: 'var(--gradient-primary)' } : undefined}
               >
                 Get Started
@@ -150,7 +148,7 @@ const PricingSection = () => {
             </motion.div>
           ))}
         </div>
-        
+
         <BlurTextBlock delay={0.6}>
           <div className="text-center mt-10">
             <p className="text-muted-foreground">
