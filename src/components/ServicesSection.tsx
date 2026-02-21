@@ -23,8 +23,6 @@ const services = [
     tags: [
       { icon: Sparkles, label: 'YouTube & Documentary Style' },
       { icon: Layers, label: 'Story + Flow Focused' },
-      { icon: PackageCheck, label: 'Clean Cuts & Sound Design' },
-      { icon: TrendingUp, label: 'Audience Retention Optimized' },
     ],
     colSpan: 'md:col-span-2',
   },
@@ -35,7 +33,6 @@ const services = [
       { icon: Palette, label: 'Thumbnails That Get Clicks' },
       { icon: Layers, label: 'Social Media Graphics' },
       { icon: PackageCheck, label: 'Brand Visuals & Posters' },
-      { icon: Sparkles, label: 'Clean & Modern Style' },
     ],
     colSpan: 'md:col-span-2',
   },

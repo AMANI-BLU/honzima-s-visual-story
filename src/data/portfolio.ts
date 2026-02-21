@@ -21,7 +21,7 @@ export const portfolioVideos: PortfolioVideo[] = [
     {
         id: 'ZJ-Qb9IBgXA',
         title: 'Short Form Content',
-        category: 'ETCL Real Estate',
+        category: 'honzima',
         description: 'Dynamic editing and color grading to showcase real estate properties with impact and clarity.'
     },
 ];
