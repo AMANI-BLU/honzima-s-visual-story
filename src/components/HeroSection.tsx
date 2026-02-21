@@ -6,7 +6,7 @@ import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-16">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-16 lg:pt-0">
       {/* Interactive Tiles Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Tiles
