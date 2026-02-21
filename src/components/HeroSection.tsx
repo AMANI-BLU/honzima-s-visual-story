@@ -6,7 +6,7 @@ import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-16 lg:pt-0">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 md:pt-16 lg:pt-12">
       {/* Interactive Tiles Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Tiles
@@ -117,7 +117,7 @@ const HeroSection = () => {
               <img
                 src={heroImage}
                 alt="Honzima - Video Editor"
-                className="w-full h-auto max-h-[70vh] object-contain relative z-10"
+                className="w-full h-auto max-h-[85vh] object-contain relative z-10"
               />
             </div>
 
