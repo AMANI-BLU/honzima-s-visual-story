@@ -7,6 +7,7 @@ import avatarEtcl from '@/assets/etcl-logo.jpg';
 import avatarChereka from '@/assets/chereka-logo.jpg';
 import avatarMy from '@/assets/my-logo.png';
 import avatarMaffys from '@/assets/maffy.jpg';
+import avatarAlkaba from '@/assets/alkaba.jpg';
 
 interface Testimonial {
   text: string;
@@ -39,6 +40,12 @@ const testimonials: Testimonial[] = [
     name: "Maffis Clothing",
     role: "Small business",
     avatar: avatarMaffys,
+  },
+  {
+    text: "Yo this came out way better than I expected, thank you!",
+    name: "Alkaba",
+    role: "Travel Agency",
+    avatar: avatarAlkaba,
   },
 ];
 
