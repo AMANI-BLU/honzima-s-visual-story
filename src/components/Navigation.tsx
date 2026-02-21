@@ -2,15 +2,16 @@ import { motion } from 'framer-motion';
 import { useState, useEffect } from 'react';
 import { Menu, X, Moon, Sun } from 'lucide-react';
 import { useTheme } from 'next-themes';
+import { Link, useLocation } from 'react-router-dom';
 
 const TELEGRAM_URL = 'https://t.me/honzima';
 
 const navLinks = [
-  { href: '#services', label: 'Service' },
-  { href: '#portfolio', label: 'Portfolio' },
-  { href: '#process', label: 'Process' },
-  { href: '#testimonials', label: 'Review' },
-  { href: '#pricing', label: 'Price' },
+  { href: '/#services', label: 'Service' },
+  { href: '/portfolio', label: 'Portfolio' },
+  { href: '/#process', label: 'Process' },
+  { href: '/#testimonials', label: 'Review' },
+  { href: '/#pricing', label: 'Price' },
 ];
 
 const Navigation = () => {
@@ -18,6 +19,7 @@ const Navigation = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
+  const location = useLocation();
 
   useEffect(() => {
     setMounted(true);
@@ -27,6 +29,17 @@ const Navigation = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const handleLinkClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('/#') && location.pathname === '/') {
+      e.preventDefault();
+      const id = href.split('#')[1];
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+  };
 
   return (
     <>
@@ -38,28 +51,45 @@ const Navigation = () => {
       >
         <div className="container-custom flex items-center justify-between px-6">
           {/* Logo */}
-          <motion.a
-            href="#"
+          <Link
+            to="/"
             className="font-display font-bold text-2xl"
-            whileHover={{ scale: 1.05 }}
-            transition={{ type: "spring", stiffness: 400, damping: 17 }}
           >
-            <span className="text-gradient">Hon</span>zima
-          </motion.a>
+            <motion.div
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 400, damping: 17 }}
+            >
+              <span className="text-gradient">Hon</span>zima
+            </motion.div>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
-              <motion.a
+              <motion.div
                 key={link.href}
-                href={link.href}
-                className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
                 whileHover={{ y: -2 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
-                {link.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full" />
-              </motion.a>
+                {link.href.startsWith('/#') ? (
+                  <a
+                    href={link.href}
+                    onClick={(e) => handleLinkClick(e, link.href)}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full" />
+                  </a>
+                ) : (
+                  <Link
+                    to={link.href}
+                    className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors duration-300 relative group"
+                  >
+                    {link.label}
+                    <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out group-hover:w-full" />
+                  </Link>
+                )}
+              </motion.div>
             ))}
           </nav>
 
@@ -109,14 +139,28 @@ const Navigation = () => {
       >
         <div className="flex flex-col items-center justify-center h-full gap-8 p-8">
           {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="text-xl font-display font-semibold text-muted-foreground hover:text-foreground transition-colors"
-            >
-              {link.label}
-            </a>
+            <div key={link.href}>
+              {link.href.startsWith('/#') ? (
+                <a
+                  href={link.href}
+                  onClick={(e) => {
+                    handleLinkClick(e, link.href);
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="text-xl font-display font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <Link
+                  to={link.href}
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-xl font-display font-semibold text-muted-foreground hover:text-foreground transition-colors"
+                >
+                  {link.label}
+                </Link>
+              )}
+            </div>
           ))}
 
           {/* Theme Toggle for Mobile */}

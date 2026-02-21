@@ -5,12 +5,8 @@ import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 import { ChevronDown } from 'lucide-react';
 
-const tiktokVideos = [
-  { id: '7591553435690978571', title: 'Video 1' },
-  { id: '7472405252826778935', title: 'Video 2' },
-  { id: '7503946574997785911', title: 'Video 3' },
-  { id: '7595307565320244536', title: 'Video 4' },
-];
+import { featuredVideos } from '@/data/portfolio';
+import { Link } from 'react-router-dom';
 
 const TikTokEmbed = ({ videoId, className = '' }: { videoId: string; className?: string }) => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -21,9 +17,6 @@ const TikTokEmbed = ({ videoId, className = '' }: { videoId: string; className?:
     script.src = 'https://www.tiktok.com/embed.js';
     script.async = true;
     document.body.appendChild(script);
-    return () => {
-      // Cleanup if needed
-    };
   }, [videoId]);
 
   return (
@@ -43,9 +36,6 @@ const TikTokEmbed = ({ videoId, className = '' }: { videoId: string; className?:
 const PortfolioSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  const [showAll, setShowAll] = useState(false);
-
-  const displayedItems = showAll ? tiktokVideos : tiktokVideos.slice(0, 4);
 
   return (
     <section id="portfolio" ref={ref} className="section-padding relative overflow-hidden">
@@ -54,7 +44,7 @@ const PortfolioSection = () => {
       </div>
       <div className="absolute inset-0 bg-gradient-radial from-transparent via-background/80 to-background pointer-events-none" />
       <div className="absolute left-0 top-0 w-[400px] h-[400px] bg-accent/10 rounded-full blur-[120px]" />
-      
+
       <div className="container-custom relative z-10">
         <div className="text-center mb-12">
           <BlurTextBlock delay={0}>
@@ -72,7 +62,7 @@ const PortfolioSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {displayedItems.map((video, index) => (
+          {featuredVideos.map((video, index) => (
             <motion.div
               key={video.id}
               initial={{ opacity: 0, y: 30 }}
@@ -87,19 +77,18 @@ const PortfolioSection = () => {
           ))}
         </div>
 
-        {!showAll && tiktokVideos.length > 4 && (
-          <div className="text-center mt-10">
+        <div className="text-center mt-10">
+          <Link to="/portfolio">
             <motion.button
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => setShowAll(true)}
-              className="inline-flex items-center gap-2 px-8 py-3 rounded-full border border-border/50 font-display font-semibold text-foreground hover:bg-secondary/50 transition-all duration-300"
+              className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-primary text-primary-foreground font-display font-bold shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300"
             >
-              Show More
-              <ChevronDown className="w-4 h-4" />
+              See All Projects
+              <ChevronDown className="w-4 h-4 rotate-[-90deg]" />
             </motion.button>
-          </div>
-        )}
+          </Link>
+        </div>
       </div>
     </section>
   );
