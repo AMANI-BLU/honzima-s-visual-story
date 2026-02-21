@@ -7,6 +7,12 @@ export interface PortfolioVideo {
 
 export const portfolioVideos: PortfolioVideo[] = [
     {
+        id: 'fXap3dvQmVM',
+        title: 'Short Form Content',
+        category: 'ETCL Real Estate',
+        description: 'Crafting compelling narratives through purposeful editing, rhythmic pacing, and emotional depth.'
+    },
+    {
         id: 'ZJ-Qb9IBgXA',
         title: 'Short Form Content',
         category: 'honzima',
