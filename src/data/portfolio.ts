@@ -14,7 +14,7 @@ export const portfolioVideos: PortfolioVideo[] = [
     },
     {
         id: 'G5MspHlAQMA',
-        title: 'Seamless Transitions',
+        title: 'Short Form Content',
         category: 'ETCL Real Estate',
         description: 'Expertly blending scenes with smooth, dynamic motion effects that maintain energy and flow.'
     },
