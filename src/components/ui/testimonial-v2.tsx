@@ -3,11 +3,7 @@ import { motion } from "framer-motion";
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 import { Tiles } from '@/components/ui/tiles';
 
-import avatarEtcl from '@/assets/etcl-logo.jpg';
-import avatarChereka from '@/assets/chereka-logo.jpg';
-import avatarMy from '@/assets/my-logo.png';
-import avatarMaffys from '@/assets/maffys-logo.png';
-import avatarFis from '@/assets/fis-logo.jpg';
+import avatarEtcl from '@/assets/testimonial-etcl.jpg';
 
 interface Testimonial {
   text: string;
@@ -23,40 +19,11 @@ const testimonials: Testimonial[] = [
     role: "PLC",
     avatar: avatarEtcl,
   },
-  {
-    text: "Great work! The edit feels smooth and exactly matches my vision.",
-    name: "Chereka Kids",
-    role: "Small business",
-    avatar: avatarChereka,
-  },
-  {
-    text: "Working with Honzima was a great experience. We will definitely be coming back for more edits.",
-    name: "M Y",
-    role: "Travel Agency",
-    avatar: avatarMy,
-  },
-  {
-    text: "You really understood what I wanted — the video came out better than I expected.",
-    name: "Maffis Clothing",
-    role: "Small business",
-    avatar: avatarMaffys,
-  },
-  {
-    text: "Yo this came out way better than I expected, thank you!",
-    name: "Alkaba",
-    role: "Travel Agency",
-  },
-  {
-    text: "The edit looks so clean, appreciate it!",
-    name: "Flipper International School",
-    role: "Education",
-    avatar: avatarFis,
-  },
 ];
 
-const firstColumn = testimonials.slice(0, 2);
-const secondColumn = testimonials.slice(2, 4);
-const thirdColumn = testimonials.slice(4, 6);
+const firstColumn = testimonials;
+const secondColumn: Testimonial[] = [];
+const thirdColumn: Testimonial[] = [];
 
 const TestimonialsColumn = ({
   className,
@@ -161,10 +128,10 @@ const TestimonialV2 = () => {
           </BlurTextBlock>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
-          <TestimonialsColumn testimonials={firstColumn} duration={20} />
-          <TestimonialsColumn testimonials={secondColumn} duration={25} className="hidden md:block" />
-          <TestimonialsColumn testimonials={thirdColumn} duration={22} className="hidden lg:block" />
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto justify-center">
+          {firstColumn.length > 0 && <TestimonialsColumn testimonials={firstColumn} duration={20} />}
+          {secondColumn.length > 0 && <TestimonialsColumn testimonials={secondColumn} duration={25} className="hidden md:block" />}
+          {thirdColumn.length > 0 && <TestimonialsColumn testimonials={thirdColumn} duration={22} className="hidden lg:block" />}
         </div>
       </div>
     </section>
