@@ -73,7 +73,7 @@ const TikTokSection = () => {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="section-padding relative overflow-hidden">
+    <section id="community" ref={ref} className="section-padding relative overflow-hidden">
       {/* Grid Background */}
       <div className="absolute inset-0 overflow-hidden">
         <Tiles rows={50} cols={30} tileSize="md" className="opacity-20" />
