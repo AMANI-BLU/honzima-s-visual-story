@@ -6,6 +6,7 @@ import { Tiles } from '@/components/ui/tiles';
 import avatarEtcl from '@/assets/etcl-logo.jpg';
 import avatarChereka from '@/assets/chereka-logo.jpg';
 import avatarMy from '@/assets/my-logo.png';
+import avatarMaffys from '@/assets/maffy.jpg';
 
 interface Testimonial {
   text: string;
@@ -32,6 +33,12 @@ const testimonials: Testimonial[] = [
     name: "M Y",
     role: "Travel Agency",
     avatar: avatarMy,
+  },
+  {
+    text: "You really understood what I wanted — the video came out better than I expected.",
+    name: "Maffis Clothing",
+    role: "Small business",
+    avatar: avatarMaffys,
   },
 ];
 
