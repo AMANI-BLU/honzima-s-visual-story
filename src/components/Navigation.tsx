@@ -11,7 +11,7 @@ const navLinks = [
   { href: '/portfolio', label: 'Portfolio' },
   { href: '/#process', label: 'Process' },
   { href: '/#testimonials', label: 'Review' },
-  { href: '/#pricing', label: 'Price' },
+  { href: '/#pricing', label: 'Pricing' },
 ];
 
 const Navigation = () => {
@@ -52,7 +52,8 @@ const Navigation = () => {
         <div className="container-custom flex items-center justify-between px-6">
           {/* Logo */}
           <Link
-            to="/"
+            to="/#hero"
+            onClick={(e) => handleLinkClick(e, '/#hero')}
             className="font-display font-bold text-2xl"
           >
             <motion.div
