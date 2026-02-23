@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { Play, ArrowDown, Sparkles } from 'lucide-react';
-import heroImage from '@/assets/honzima-hero.png';
+import heroImage from '@/assets/new-hero.jpg';
 import { Tiles } from '@/components/ui/tiles';
 import { BlurText, BlurTextBlock } from '@/components/ui/blur-text';
 
