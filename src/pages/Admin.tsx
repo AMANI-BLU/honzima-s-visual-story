@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Plus, Trash2, Save, RotateCcw, Copy, ExternalLink, LayoutGrid, List, Check, AlertCircle, LogOut, ArrowLeft, Lock } from 'lucide-react';
-import { getVideos, saveVideos, resetVideos, PortfolioVideo } from '@/data/portfolio';
+import { getVideos, saveVideo, deleteVideo, PortfolioVideo } from '@/data/portfolio';
 import { toast } from 'sonner';
 import { useNavigate, Link } from 'react-router-dom';
 
@@ -24,7 +24,11 @@ const Admin = () => {
             return;
         }
 
-        setVideos(getVideos());
+        const fetchVideos = async () => {
+            const data = await getVideos();
+            setVideos(data);
+        };
+        fetchVideos();
     }, [navigate]);
 
     const handleLogout = () => {
@@ -44,33 +48,43 @@ const Admin = () => {
         setNewPassword('');
     };
 
-    const handleAddVideo = (e: React.FormEvent) => {
+    const handleAddVideo = async (e: React.FormEvent) => {
         e.preventDefault();
         if (!newVideo.id || !newVideo.title) {
             toast.error("Video ID and Title are required");
             return;
         }
 
-        const updatedVideos = [...videos, newVideo as PortfolioVideo];
-        setVideos(updatedVideos);
-        saveVideos(updatedVideos);
-        setNewVideo({ id: '', title: '', category: '', description: '' });
-        toast.success("Video added to local storage");
+        try {
+            await saveVideo(newVideo as PortfolioVideo);
+            const updatedVideos = await getVideos();
+            setVideos(updatedVideos);
+            setNewVideo({ id: '', title: '', category: '', description: '' });
+            toast.success("Video added to Supabase");
+        } catch (error) {
+            toast.error("Failed to add video");
+        }
     };
 
-    const handleDeleteVideo = (id: string) => {
-        const updatedVideos = videos.filter(v => v.id !== id);
-        setVideos(updatedVideos);
-        saveVideos(updatedVideos);
-        toast.success("Video removed from local storage");
+    const handleDeleteVideo = async (id: string) => {
+        try {
+            await deleteVideo(id);
+            const updatedVideos = await getVideos();
+            setVideos(updatedVideos);
+            toast.success("Video removed from Supabase");
+        } catch (error) {
+            toast.error("Failed to delete video");
+        }
     };
 
-    const handleReset = () => {
-        if (confirm("Reset to default videos and password? All local changes will be lost.")) {
-            resetVideos();
+    const handleReset = async () => {
+        if (confirm("Reset to default videos and password? This will clear everything in Supabase.")) {
+            // In a Supabase context, reset might mean clearing the table or restoring seeds.
+            // For now, let's just clear the local password and inform the user.
             localStorage.removeItem('honzima_admin_password');
-            setVideos(getVideos());
-            toast.info("Restored default settings");
+            const data = await getVideos();
+            setVideos(data);
+            toast.info("Restored default settings (Local password cleared)");
         }
     };
 

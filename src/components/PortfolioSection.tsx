@@ -29,7 +29,11 @@ const PortfolioSection = () => {
   const [videos, setVideos] = useState([]);
 
   useEffect(() => {
-    setVideos(getVideos());
+    const fetchVideos = async () => {
+      const data = await getVideos();
+      setVideos(data);
+    };
+    fetchVideos();
   }, []);
 
   return (

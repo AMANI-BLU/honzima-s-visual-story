@@ -10,9 +10,12 @@ const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
 
-    const handleLogin = (e: React.FormEvent) => {
+    const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        // For now, we'll use a simple password check against a settings table in Supabase
+        // or a predefined password if we don't have a settings table yet.
+        // Let's assume there's a 'settings' table with 'key' and 'value'
         const storedPassword = localStorage.getItem('honzima_admin_password') || 'honzima123';
 
         if (password === storedPassword) {

@@ -1,45 +1,45 @@
+import { supabase } from '@/lib/supabase';
+
 export interface PortfolioVideo {
     id: string;
     title: string;
     category?: string;
     description?: string;
+    created_at?: string;
 }
 
-const STORAGE_KEY = 'honzima_portfolio_videos';
+export const getVideos = async (): Promise<PortfolioVideo[]> => {
+    const { data, error } = await supabase
+        .from('videos')
+        .select('*')
+        .order('created_at', { ascending: false });
 
-export const portfolioVideos: PortfolioVideo[] = [
-    {
-        id: 'fXap3dvQmVM',
-        title: 'Short Form Content',
-        category: 'ETCL Real Estate',
-        description: 'Crafting compelling narratives through purposeful editing, rhythmic pacing, and emotional depth.'
-    },
-    {
-        id: 'G5MspHlAQMA',
-        title: 'Short Form Content',
-        category: 'ETCL Real Estate',
-        description: 'Expertly blending scenes with smooth, dynamic motion effects that maintain energy and flow.'
-    },
-    {
-        id: 'ZJ-Qb9IBgXA',
-        title: 'Short Form Content',
-        category: 'honzima',
-        description: 'Dynamic editing and color grading to showcase real estate properties with impact and clarity.'
-    },
-];
-
-export const getVideos = (): PortfolioVideo[] => {
-    if (typeof window === 'undefined') return portfolioVideos;
-    const stored = localStorage.getItem(STORAGE_KEY);
-    return stored ? JSON.parse(stored) : portfolioVideos;
+    if (error) {
+        console.error('Error fetching videos:', error);
+        return [];
+    }
+    return data || [];
 };
 
-export const saveVideos = (videos: PortfolioVideo[]) => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(videos));
+export const saveVideo = async (video: PortfolioVideo) => {
+    const { error } = await supabase
+        .from('videos')
+        .upsert(video);
+
+    if (error) {
+        console.error('Error saving video:', error);
+        throw error;
+    }
 };
 
-export const resetVideos = () => {
-    localStorage.removeItem(STORAGE_KEY);
-};
+export const deleteVideo = async (id: string) => {
+    const { error } = await supabase
+        .from('videos')
+        .delete()
+        .eq('id', id);
 
-export const featuredVideos = getVideos();
+    if (error) {
+        console.error('Error deleting video:', error);
+        throw error;
+    }
+};
