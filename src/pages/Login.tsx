@@ -13,8 +13,9 @@ const Login = () => {
     const handleLogin = (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Simple password for now - can be changed later
-        if (password === 'honzima123') {
+        const storedPassword = localStorage.getItem('honzima_admin_password') || 'honzima123';
+
+        if (password === storedPassword) {
             sessionStorage.setItem('honzima_admin_session', 'true');
             toast.success('Successfully logged in');
             navigate('/admin');

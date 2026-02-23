@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Plus, Trash2, Save, RotateCcw, Copy, ExternalLink, LayoutGrid, List, Check, AlertCircle, LogOut, ArrowLeft } from 'lucide-react';
+import { Plus, Trash2, Save, RotateCcw, Copy, ExternalLink, LayoutGrid, List, Check, AlertCircle, LogOut, ArrowLeft, Lock } from 'lucide-react';
 import { getVideos, saveVideos, resetVideos, PortfolioVideo } from '@/data/portfolio';
 import { toast } from 'sonner';
 import { useNavigate, Link } from 'react-router-dom';
@@ -8,6 +8,7 @@ import { useNavigate, Link } from 'react-router-dom';
 const Admin = () => {
     const navigate = useNavigate();
     const [videos, setVideos] = useState<PortfolioVideo[]>([]);
+    const [newPassword, setNewPassword] = useState('');
     const [newVideo, setNewVideo] = useState<Partial<PortfolioVideo>>({
         id: '',
         title: '',
@@ -32,6 +33,17 @@ const Admin = () => {
         navigate('/login');
     };
 
+    const handlePasswordChange = (e: React.FormEvent) => {
+        e.preventDefault();
+        if (newPassword.length < 4) {
+            toast.error("Password must be at least 4 characters long");
+            return;
+        }
+        localStorage.setItem('honzima_admin_password', newPassword);
+        toast.success("Admin password updated locally!");
+        setNewPassword('');
+    };
+
     const handleAddVideo = (e: React.FormEvent) => {
         e.preventDefault();
         if (!newVideo.id || !newVideo.title) {
@@ -54,18 +66,25 @@ const Admin = () => {
     };
 
     const handleReset = () => {
-        if (confirm("Reset to default videos? All local changes will be lost.")) {
+        if (confirm("Reset to default videos and password? All local changes will be lost.")) {
             resetVideos();
+            localStorage.removeItem('honzima_admin_password');
             setVideos(getVideos());
-            toast.info("Restored default videos");
+            toast.info("Restored default settings");
         }
     };
 
     const exportConfig = () => {
+        const customPassword = localStorage.getItem('honzima_admin_password');
         const config = JSON.stringify(videos, null, 4);
-        const code = `export const portfolioVideos: PortfolioVideo[] = ${config};`;
+
+        let code = `// --- VIDEOS CONFIG ---\nexport const portfolioVideos: PortfolioVideo[] = ${config};\n`;
+        if (customPassword) {
+            code += `\n// --- PASSWORD CONFIG ---\n// To make the new password permanent, update it in Login.tsx\n// Current custom password: ${customPassword}`;
+        }
+
         navigator.clipboard.writeText(code);
-        toast.success("Config copied to clipboard! Paste it into portfolio.ts to make it permanent.");
+        toast.success("Config copied to clipboard!");
     };
 
     return (
@@ -176,6 +195,34 @@ const Admin = () => {
                                     className="w-full bg-secondary hover:bg-secondary/70 text-foreground font-display font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2 mt-2"
                                 >
                                     Add to Portfolio
+                                </button>
+                            </form>
+                        </div>
+
+                        {/* Change Password Section */}
+                        <div className="glass-card p-8 mt-8">
+                            <h2 className="text-xl font-display font-bold mb-6 flex items-center gap-2 text-foreground">
+                                <Lock className="w-5 h-5 text-primary" />
+                                Security Settings
+                            </h2>
+                            <form onSubmit={handlePasswordChange} className="space-y-4">
+                                <div>
+                                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground mb-1.5 block">
+                                        New Admin Password
+                                    </label>
+                                    <input
+                                        type="password"
+                                        placeholder="Min. 4 characters"
+                                        className="w-full bg-secondary/30 border border-border/50 rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
+                                        value={newPassword}
+                                        onChange={(e) => setNewPassword(e.target.value)}
+                                    />
+                                </div>
+                                <button
+                                    type="submit"
+                                    className="w-full bg-secondary hover:bg-secondary/70 text-foreground font-display font-bold py-3 px-6 rounded-xl transition-all flex items-center justify-center gap-2"
+                                >
+                                    Update Password
                                 </button>
                             </form>
                         </div>
