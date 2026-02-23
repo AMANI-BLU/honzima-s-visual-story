@@ -14,7 +14,6 @@ const HeroSection = () => {
           cols={30}
           tileSize="md"
           className="opacity-40"
-          tileClassName="hover:!bg-primary/80"
         />
       </div>
 

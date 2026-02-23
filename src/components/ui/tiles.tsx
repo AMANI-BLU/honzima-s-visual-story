@@ -1,7 +1,6 @@
 "use client"
 
 import React from "react"
-import { motion } from "framer-motion"
 import { cn } from "@/lib/utils"
 
 interface TilesProps {
@@ -31,25 +30,18 @@ export function Tiles({
   return (
     <div
       className={cn(
-        "relative z-0 flex flex-wrap justify-center",
+        "relative z-0 flex flex-wrap justify-center pointer-events-auto",
         className
       )}
     >
       {rowsArray.map((_, i) => (
         <div key={`row-${i}`} className="flex">
           {colsArray.map((_, j) => (
-            <motion.div
-              whileHover={{
-                backgroundColor: "hsl(var(--primary))",
-                transition: { duration: 0 },
-              }}
-              animate={{
-                transition: { duration: 2 },
-              }}
+            <div
               key={`col-${j}`}
               className={cn(
                 tileSizes[tileSize],
-                "border-[0.5px] border-border/60",
+                "border-[0.5px] border-border/60 transition-colors duration-500 hover:bg-primary/40 hover:duration-0",
                 tileClassName
               )}
             />
