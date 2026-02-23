@@ -27,7 +27,11 @@ const Portfolio = () => {
     const [videos, setVideos] = useState<PortfolioVideo[]>([]);
 
     useEffect(() => {
-        setVideos(getVideos());
+        const fetchVideos = async () => {
+            const data = await getVideos();
+            setVideos(data);
+        };
+        fetchVideos();
         window.scrollTo(0, 0);
     }, []);
 
