@@ -30,7 +30,7 @@ const tiktokComments = [
   },
   {
     id: 3,
-    username: '@Ayat siraj',
+    username: 'Dr. Hayat Feraj',
     comment: "Loved your content HONZIMA",
     likes: '45',
     time: '4d',
