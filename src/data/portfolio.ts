@@ -9,27 +9,31 @@ export interface PortfolioVideo {
 }
 
 export const getVideos = async (): Promise<PortfolioVideo[]> => {
+    console.log('Fetching videos from Supabase...');
     const { data, error } = await supabase
         .from('videos')
         .select('*')
         .order('created_at', { ascending: false });
 
     if (error) {
-        console.error('Error fetching videos:', error);
+        console.error('Supabase fetch error:', error);
         return [];
     }
+    console.log('Fetched videos:', data?.length || 0);
     return data || [];
 };
 
 export const saveVideo = async (video: PortfolioVideo) => {
+    console.log('Saving video to Supabase:', video);
     const { error } = await supabase
         .from('videos')
         .upsert(video);
 
     if (error) {
-        console.error('Error saving video:', error);
+        console.error('Supabase save error:', error);
         throw error;
     }
+    console.log('Video saved successfully');
 };
 
 export const deleteVideo = async (id: string) => {

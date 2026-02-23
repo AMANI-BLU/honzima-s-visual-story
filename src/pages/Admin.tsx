@@ -48,15 +48,24 @@ const Admin = () => {
         setNewPassword('');
     };
 
+    const extractYouTubeId = (url: string) => {
+        const regex = /(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|shorts\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/;
+        const match = url.match(regex);
+        return match ? match[1] : url;
+    };
+
     const handleAddVideo = async (e: React.FormEvent) => {
         e.preventDefault();
-        if (!newVideo.id || !newVideo.title) {
+        const videoId = extractYouTubeId(newVideo.id || '');
+
+        if (!videoId || !newVideo.title) {
             toast.error("Video ID and Title are required");
             return;
         }
 
         try {
-            await saveVideo(newVideo as PortfolioVideo);
+            const videoToSave = { ...newVideo, id: videoId } as PortfolioVideo;
+            await saveVideo(videoToSave);
             const updatedVideos = await getVideos();
             setVideos(updatedVideos);
             setNewVideo({ id: '', title: '', category: '', description: '' });
@@ -125,7 +134,7 @@ const Admin = () => {
                         </h1>
                         <p className="text-muted-foreground flex items-center gap-2">
                             <AlertCircle className="w-4 h-4 text-primary" />
-                            Manage your portfolio locally. Changes are saved in your browser.
+                            Manage your portfolio with Supabase. Changes are saved in the cloud.
                         </p>
                     </div>
 
@@ -135,7 +144,7 @@ const Admin = () => {
                             className="flex items-center gap-2 px-4 py-2 rounded-xl border border-border/50 hover:bg-secondary/50 transition-colors text-sm font-medium"
                         >
                             <RotateCcw className="w-4 h-4" />
-                            Reset Defaults
+                            Refresh Data
                         </button>
                         <button
                             onClick={exportConfig}
